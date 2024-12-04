@@ -3,6 +3,7 @@ import localFont from "next/font/local"
 import "./globals.css"
 import Header from "./components/Header"
 import About from "./about/page"
+import { oswald } from "./fonts"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased px-8`}
+        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased px-8`}
       >
         <Header />
         {/* <About /> */}

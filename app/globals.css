@@ -16,6 +16,10 @@
   --qf-blue: 3, 15, 24;
 }
 
-/* .container {
-  @apply px-8 mx-auto;
-} */
+body {
+  line-height: 1.5;
+}
+
+p {
+  font-family: var(--font-oswald);
+}
