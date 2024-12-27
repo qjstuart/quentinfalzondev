@@ -1,12 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
-import { oswald } from '@/app/fonts'
+import { oswald } from "@/app/fonts"
 
 export default function Home() {
   return (
     <main className={`container p-8 mx-auto`}>
       <p>Hi there, my name is</p>
-      <h1 className={`font-semibold`} >Quentin Falzon.</h1>
+      <h1 className={`font-semibold`}>Quentin Falzon.</h1>
       <div>
         <Link href="/about">About</Link>
       </div>

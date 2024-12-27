@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
 export default {
   content: [
@@ -9,11 +9,15 @@ export default {
   theme: {
     extend: {
       colors: {
+        background: "rgba(var(--background))",
+        foreground: "rgba(var(--foreground))",
+
+        "copy-primary": "rgba(var(--copy-primary))",
+
         "qf-blue": "rgba(var(--qf-blue))",
-        background: "var(--background)",
-        foreground: "var(--foreground)",
       },
     },
   },
   plugins: [],
-} satisfies Config;
+  darkMode: "selector",
+} satisfies Config

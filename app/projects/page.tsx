@@ -1,18 +1,42 @@
 import React from "react"
+import ProjectCard from "../components/ProjectCard"
 
 export default function Projects() {
   return (
     <>
-      <h1>Welcome to the Projects Page</h1>
-      <div>
-        <p>Here is a list of projects</p>
-        <ul>
-            <li>Project 1</li>
-            <li>Project 1</li>
-            <li>Project 1</li>
-            <li>Project 1</li>
-            <li>Project 1</li>
-        </ul>
+      <h1 className="">Some things I've built</h1>
+      <div className="text-copy-primary m-8">
+        <div>
+          <ul className="flex flex-col gap-6">
+            {/* 
+                Discogs collection 
+                Daily word detectives
+                Daniel Sant website
+                NASA pic of the day
+                This portfolio website
+            */}
+            <ProjectCard
+              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
+              description="Showcasing record collections using the Discogs API"
+            />
+            <ProjectCard
+              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
+              description="Daily word detectives"
+            />
+            <ProjectCard
+              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
+              description="Daniel Sant website"
+            />
+            <ProjectCard
+              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
+              description="NASA pic of the day"
+            />
+            <ProjectCard
+              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
+              description="This portfolio website"
+            />
+          </ul>
+        </div>
       </div>
     </>
   )

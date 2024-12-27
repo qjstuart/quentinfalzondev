@@ -3,7 +3,8 @@ import localFont from "next/font/local"
 import "./globals.css"
 import Header from "./components/Header"
 import About from "./about/page"
-import { oswald } from "./fonts"
+import { oswald, ptSans } from "./fonts"
+import { Providers } from "./providers"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,20 +22,25 @@ export const metadata: Metadata = {
   description: "Welcome to the web development portfolio of Quentin Falzon",
 }
 
+type HeaderProps = {
+  onThemeChange: () => void
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased px-8`}
+        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-8 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
       >
-        <Header />
-        {/* <About /> */}
-        {children}
-        <footer></footer>
+        <Providers>
+          <Header />
+          <main className="flex flex-col items-center py-12 mx-auto">{children}</main>
+          <footer>I am the footer</footer>
+        </Providers>
       </body>
     </html>
   )
