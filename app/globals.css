@@ -6,15 +6,16 @@
 @layer base {
   h1 {
     @apply text-6xl;
-    font-family: var(--font-pt-sans)
+    font-family: var(--font-pt-sans);
   }
   h3 {
     @apply text-2xl;
-    font-family: var(--font-secondary)
+    font-family: var(--font-secondary);
   }
   :root {
     --background: 255, 255, 255;
-    --qf-blue: 3, 15, 24;
+    --project-card-bg: 255, 255, 255;
+    --project-card-bg-hover: 241, 245, 249;
 
     --copy-primary: 0, 0, 0;
 
@@ -24,7 +25,8 @@
 
 .dark {
   --background: 0, 0, 0;
-  --qf-blue: 3, 15, 24;
+  --project-card-bg: 10, 10, 10;
+  --project-card-bg-hover: 18, 18, 18;
 
   --copy-primary: 255, 255, 255;
 

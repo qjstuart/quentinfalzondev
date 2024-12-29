@@ -14,7 +14,8 @@ export default {
 
         "copy-primary": "rgba(var(--copy-primary))",
 
-        "qf-blue": "rgba(var(--qf-blue))",
+        "project-card-bg": "rgba(var(--project-card-bg))",
+        "project-card-bg-hover": "rgba(var(--project-card-bg-hover))",
       },
     },
   },

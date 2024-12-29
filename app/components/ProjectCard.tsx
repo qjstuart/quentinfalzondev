@@ -1,4 +1,5 @@
 import React from "react"
+import Image from "next/image"
 
 type ProjectCardProps = {
   description: string
@@ -10,14 +11,13 @@ export default function ProjectCard({
   iconSrc,
 }: ProjectCardProps) {
   return (
-    <div className="flex items-center border border-copy-primary">
-      <div className="basis-3/12">
-        <picture>
+    <div className="flex justify-center items-center w-[300px] h-[300px] rounded-lg shadow-lg bg-project-card-bg hover:bg-project-card-bg-hover hover:cursor-pointer transition-colors">
+      <div className="grid grid-rows-[1fr_auto] gap-3">
+        <Image src={iconSrc} width={200} height={200} alt="Alt text" />
+        {/* <picture className="max-w-[200px] max-h-[200px]">
           <img src={iconSrc} />
-        </picture>
-      </div>
-      <div className="basis-9/12">
-        <p className="justify-self-center">{description}</p>
+        </picture> */}
+        <p className="justify-self-center text-2xl">{description}</p>
       </div>
     </div>
   )

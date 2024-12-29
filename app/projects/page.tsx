@@ -7,7 +7,7 @@ export default function Projects() {
       <h1 className="">Some things I've built</h1>
       <div className="text-copy-primary m-8">
         <div>
-          <ul className="flex flex-col gap-6">
+          <ul className="grid grid-cols-2 gap-16">
             {/* 
                 Discogs collection 
                 Daily word detectives
@@ -16,25 +16,25 @@ export default function Projects() {
                 This portfolio website
             */}
             <ProjectCard
-              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
-              description="Showcasing record collections using the Discogs API"
+              iconSrc="/record_player.jpg"
+              description="Music Catalog Browser"
             />
             <ProjectCard
               iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
               description="Daily word detectives"
             />
-            <ProjectCard
+            {/* <ProjectCard
               iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
               description="Daniel Sant website"
-            />
-            <ProjectCard
+            /> */}
+            {/* <ProjectCard
               iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
               description="NASA pic of the day"
-            />
-            <ProjectCard
+            /> */}
+            {/* <ProjectCard
               iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
               description="This portfolio website"
-            />
+            /> */}
           </ul>
         </div>
       </div>
