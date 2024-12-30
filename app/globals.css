@@ -13,31 +13,37 @@
     font-family: var(--font-secondary);
   }
   :root {
-    --background: 255, 255, 255;
+    --background-color: 255, 255, 255;
     --project-card-bg: 255, 255, 255;
-    --project-card-bg-hover: 241, 245, 249;
+    --project-card-bg-hover: 240, 240, 240;
 
     --copy-primary: 0, 0, 0;
 
-    background: rgba(var(--background));
+    background-color: rgba(var(--background-color));
+    transition: background-color 0.15s ease-in-out;
   }
 }
 
 .dark {
-  --background: 0, 0, 0;
+  --background-color: 0, 0, 0;
   --project-card-bg: 10, 10, 10;
-  --project-card-bg-hover: 18, 18, 18;
+  --project-card-bg-hover: 15, 15, 15;
 
   --copy-primary: 255, 255, 255;
 
-  background: rgba(var(--background));
+  background-color: rgba(var(--background-color));
+  transition: background-color 0.15s ease-in-out;
 }
 
 body {
   line-height: 1.5;
 
-  --font-primary: var(--font-oswald);
-  --font-secondary: var(--font-pt-sans);
+  --font-primary: var(--font-pt-sans);
+  --font-secondary: var(--font-oswald);
+}
+
+header {
+  font-family: var(--font-secondary);
 }
 
 p {

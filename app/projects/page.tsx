@@ -5,9 +5,9 @@ export default function Projects() {
   return (
     <>
       <h1 className="">Some things I've built</h1>
-      <div className="text-copy-primary m-8">
+      <div className="text-copy-primary my-12">
         <div>
-          <ul className="grid grid-cols-2 gap-16">
+          <ul className="grid gap-12 md:grid-cols-2 md:gap-16">
             {/* 
                 Discogs collection 
                 Daily word detectives
@@ -16,11 +16,11 @@ export default function Projects() {
                 This portfolio website
             */}
             <ProjectCard
-              iconSrc="/record_player.jpg"
+              iconSrc="/record_player_silver.png"
               description="Music Catalog Browser"
             />
             <ProjectCard
-              iconSrc="https://t4.ftcdn.net/jpg/05/89/27/21/360_F_589272121_akMVElogcYg2xhMoL3EQntLNKSQ4X6zC.jpg"
+              iconSrc="/daily_word_detectives.png"
               description="Daily word detectives"
             />
             {/* <ProjectCard

@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-8 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-6 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
       >
         <Providers>
           <Header />
