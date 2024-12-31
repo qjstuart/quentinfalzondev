@@ -5,7 +5,7 @@
 /* extend Tailwind's base layer to set foundational styles */
 @layer base {
   h1 {
-    @apply text-6xl;
+    @apply text-4xl sm:text-6xl;
     font-family: var(--font-pt-sans);
   }
   h3 {

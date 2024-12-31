@@ -1,10 +1,15 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["t4.ftcdn.net"]
-  }
-};
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "t4.ftcdn.net",
+      },
+    ],
+  },
+}
 
-export default nextConfig;
+export default nextConfig
