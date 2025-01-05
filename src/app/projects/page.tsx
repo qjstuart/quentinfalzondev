@@ -4,7 +4,7 @@ import ProjectCard from "@/components/ProjectCard"
 export default function Projects() {
   return (
     <>
-      <h1 className="text-center">Some things I've built</h1>
+      <h1 className="text-center">Some things I&apos;ve built</h1>
       <div className="text-copy-primary my-12">
         <div>
           <ul className="grid gap-12 sm:grid-cols-2 sm:gap-16">

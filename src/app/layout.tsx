@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
-import About from "./about/page"
 import { oswald, ptSans } from "../fonts"
 import { Providers } from "../providers"
 import Header from "@/components/Header"
@@ -20,10 +19,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Quentin Falzon",
   description: "Welcome to the web development portfolio of Quentin Falzon",
-}
-
-type HeaderProps = {
-  onThemeChange: () => void
 }
 
 export default function RootLayout({

@@ -3,7 +3,7 @@ import Image from "next/image"
 
 type ProjectCardProps = {
   description: string
-  iconSrc: any
+  iconSrc: string
 }
 
 export default function ProjectCard({

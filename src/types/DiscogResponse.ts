@@ -10,6 +10,6 @@ type Pagination = {
   pages: number
   per_page: number
   items: number
-  urls: any
+  urls: string
 }
 export default DiscogResponse

@@ -3,7 +3,7 @@ import { Project } from "@/types/Project"
 
 const projectInfo = {
   id: "2",
-  title: "Daniel Sant's Website",
+  title: "Daniel Sants Website",
   description: "The official website of Daniel Sant",
   imageSrc: "/record_player_silver.png",
   about:
