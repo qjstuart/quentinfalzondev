@@ -2,10 +2,6 @@ import DiscogRecord from "@/types/DiscogRecord"
 import Image from "next/image"
 import { searchRecordsByTitleAndArtist } from "@/app/lib/util"
 
-type RecordsListProps = {
-  records: DiscogRecord[]
-}
-
 export default async function RecordsList({
   query,
   currentPage,
@@ -28,6 +24,7 @@ export default async function RecordsList({
   const data = await response.json()
   const records = data.releases
   const filteredRecords = searchRecordsByTitleAndArtist(records, query)
+  console.log("currentPage", currentPage)
 
   return (
     <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

@@ -1,5 +1,3 @@
-import DiscogRecord from "@/types/DiscogRecord"
-import Image from "next/image"
 import Search from "@/components/Search"
 import RecordsList from "@/components/RecordsList"
 import { RecordsListSkeleton } from "@/components/Skeletons"
