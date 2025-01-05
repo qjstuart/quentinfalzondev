@@ -2,9 +2,8 @@ import type { Config } from "tailwindcss"
 
 export default {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -19,6 +18,10 @@ export default {
       },
       boxShadow: {
         projectcard: "0px 0px 6px rgba(0, 0, 0, 0.5)",
+      },
+      screens: {
+        lg: "992px",
+        xs: "375px",
       },
     },
   },

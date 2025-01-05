@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1",
+    "title": "Discogs Record Collection",
+    "description": "A record collection app using the Discogs API",
+    "imageSrc": "/record_player_silver.png",
+    "about": "I wanted to create a tool to organize and showcase my vinyl collection. With this app, I can pull data directly from the Discogs API and display details about each record"
+  },
+  {
+    "id": "2",
+    "title": "Daniel Sant's Website",
+    "description": "The official website of Daniel Sant",
+    "imageSrc": "/record_player_silver.png",
+    "about": "Tasked to build a functional website for pianist/composer Daniel Sant. The goal is to have a platform for his audience to find important information, and is also being expanded to allow for people to view Daniel's sheet music"
+  }
+]

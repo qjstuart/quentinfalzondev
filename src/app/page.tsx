@@ -1,6 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
-import { oswald } from "@/app/fonts"
+import { oswald } from "@/fonts"
 
 export default function Home() {
   return (

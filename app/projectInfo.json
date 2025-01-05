@@ -1,9 +1,0 @@
-{
-  "discogs": {
-    "id": 1,
-    "title": "Discogs Record Collection",
-    "description": "A record collection app using the Discogs API",
-    "imageSrc": "/record_player_silver.png",
-    "about": "I wanted to create a tool to organize and showcase my vinyl collection. With this app, I can pull data directly from the Discogs API and display details about each record"
-  }
-}
