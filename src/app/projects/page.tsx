@@ -11,10 +11,12 @@ export default function Projects() {
             <ProjectCard
               iconSrc="/record_player_silver.png"
               description="Music Catalog Browser"
+              href={"/projects/record-collection"}
             />
             <ProjectCard
               iconSrc="/daily_word_detectives.png"
               description="Daily word detectives"
+              href={"/projects/daily-word-detectives/about"}
             />
           </ul>
         </div>
