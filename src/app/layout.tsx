@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import localFont from "next/font/local"
 import "./globals.css"
 import { oswald, ptSans } from "../fonts"
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   description: "Welcome to the web development portfolio of Quentin Falzon",
 }
 
-// export const viewport: Viewport = {
-//   themeColor: "#32A852",
-// }
+export const viewport: Viewport = {
+  themeColor: "#32A852",
+}
 
 export default function RootLayout({
   children,

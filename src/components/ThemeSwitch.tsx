@@ -9,6 +9,23 @@ export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { setTheme, resolvedTheme } = useTheme()
 
+  // Update the <meta name="theme-color"> dynamically
+  useEffect(() => {
+    if (!mounted) {
+      return
+    }
+
+    const metaThemeColor = document.querySelector("meta[name='theme-color']")
+    console.log("metaThemeColor", metaThemeColor)
+
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute(
+        "content",
+        resolvedTheme === "dark" ? "#000000" : "#FFFFFF"
+      )
+    }
+  }, [resolvedTheme, mounted])
+
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
