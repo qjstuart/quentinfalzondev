@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next"
+import Head from "next/head"
 import localFont from "next/font/local"
 import "./globals.css"
 import { oswald, ptSans } from "../fonts"
@@ -21,12 +22,12 @@ export const metadata: Metadata = {
   description: "Welcome to the web development portfolio of Quentin Falzon",
 }
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#FFFFFF' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
-}
+// export const viewport: Viewport = {
+//   themeColor: [
+//     { media: "(prefers-color-scheme: light)", color: "#FFFFFF" },
+//     { media: "(prefers-color-scheme: dark)", color: "#000000" },
+//   ],
+// }
 
 export default function RootLayout({
   children,
@@ -35,6 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <meta name="theme-color" content="rgba(66, 135, 78, 0.8)" />
+      </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-6 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
       >
