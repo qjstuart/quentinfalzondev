@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <Head>
-        <meta name="theme-color" content="rgba(66, 135, 78, 0.8)" />
+        <meta name="theme-color" content="#42874ecc" />
       </Head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-6 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
