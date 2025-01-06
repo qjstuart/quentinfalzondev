@@ -19,7 +19,7 @@
 
     --copy-primary: 0, 0, 0;
 
-    background-color: rgba(var(--background-color));
+    /* background-color: rgba(var(--background-color)); */
     transition: background-color 0.15s ease-in-out;
   }
 }
@@ -31,7 +31,7 @@
 
   --copy-primary: 255, 255, 255;
 
-  background-color: rgba(var(--background-color));
+  /* background-color: rgba(var(--background-color)); */
   transition: background-color 0.15s ease-in-out;
 }
 
@@ -40,6 +40,9 @@ body {
 
   --font-primary: var(--font-pt-sans);
   --font-secondary: var(--font-oswald);
+
+  background-color: rgba(var(--background-color));
+  transition: background-color 0.15s ease-in-out;
 }
 
 header {
