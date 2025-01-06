@@ -28,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <meta name="theme-color" content="var(--background-color)" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-6 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
       >
