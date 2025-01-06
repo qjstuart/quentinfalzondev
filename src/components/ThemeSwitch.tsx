@@ -15,15 +15,21 @@ export default function ThemeSwitch() {
       return
     }
 
-    const metaThemeColor = document.querySelector("meta[name='theme-color']")
-    console.log("metaThemeColor", metaThemeColor)
+    // Create a new <meta> tag to hold the theme-color attribute
+    const metaTag = document.createElement("meta")
+    metaTag.setAttribute("name", "theme-color")
 
-    if (metaThemeColor) {
-      metaThemeColor.setAttribute(
-        "content",
-        resolvedTheme === "dark" ? "#000000" : "#FFFFFF"
-      )
+    // Set the theme-color attribute based on the resolved theme
+    if (resolvedTheme === "dark") {
+      metaTag?.setAttribute("content", "#000000")
+    } else if (resolvedTheme === "light") {
+      metaTag?.setAttribute("content", "#FFFFFF")
     }
+
+    // Append the <meta> tag to the <head> element
+    document.head.appendChild(metaTag)
+
+    console.log("metaThemeColor", metaTag)
   }, [resolvedTheme, mounted])
 
   useEffect(() => setMounted(true), [])
