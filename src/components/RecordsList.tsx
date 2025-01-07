@@ -1,34 +1,27 @@
-import DiscogRecord from "@/types/DiscogRecord"
+import DiscogsRecord from "@/types/DiscogsRecord"
+import DiscogsResponse from "@/types/DiscogsResponse"
 import Image from "next/image"
 import { searchRecordsByTitleAndArtist } from "@/app/lib/util"
 
 export default async function RecordsList({
   query,
   currentPage,
+  discogsResponse,
 }: {
   query: string
   currentPage: number
+  discogsResponse: DiscogsResponse
 }) {
-
-  const response = await fetch(
-    `https://api.discogs.com/users/QJ_Stuart/collection/folders/0/releases?token=${process.env.DISCOGS_TOKEN}&per_page=200&sort=artist`,
-    {
-      headers: {
-        "User-Agent":
-          "QuentinFalzonRecordCollection/1.0 +https://github.com/qjstuart/quentinfalzondev",
-      },
-      next: { revalidate: 3600 },
-    }
-  )
-
-  const data = await response.json()
-  const records = data.releases
+  const records = discogsResponse.releases
   const filteredRecords = searchRecordsByTitleAndArtist(records, query)
+
+  // console.log("data", data)
+  // console.log("records.length", records.length)
   console.log("currentPage", currentPage)
 
   return (
     <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-      {filteredRecords.map((record: DiscogRecord) => (
+      {filteredRecords.map((record: DiscogsRecord) => (
         <li key={record.instance_id}>
           <div className="size-[200px] relative">
             <Image
@@ -36,7 +29,7 @@ export default async function RecordsList({
               sizes="(min-width: 375px) 150px, (min-width: 640px) 200px, 200px"
               src={record.basic_information.cover_image}
               alt={record.basic_information.title}
-              className="rounded-md"
+              className="rounded-md hover:cursor-pointer"
             />
           </div>
           {/* 

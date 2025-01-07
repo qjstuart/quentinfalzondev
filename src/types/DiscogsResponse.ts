@@ -1,8 +1,8 @@
-import DiscogRecord from "./DiscogRecord"
+import DiscogsRecord from "./DiscogsRecord"
 
-type DiscogResponse = {
+type DiscogsResponse = {
   pagination: Pagination
-  releases: DiscogRecord[]
+  releases: DiscogsRecord[]
 }
 
 type Pagination = {
@@ -12,4 +12,4 @@ type Pagination = {
   items: number
   urls: string
 }
-export default DiscogResponse
+export default DiscogsResponse
