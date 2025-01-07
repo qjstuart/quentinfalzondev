@@ -1,27 +1,22 @@
 import DiscogsRelease from "@/types/DiscogsRelease"
 import DiscogsResponse from "@/types/DiscogsResponse"
 import Image from "next/image"
-import { filterReleasesByTitleAndArtist } from "@/app/lib/util"
+import { fetchFilteredDiscogsCollection } from "@/app/lib/util"
 
 export default async function RecordsList({
   query,
   currentPage,
-  releases,
 }: {
   query: string
   currentPage: number
-  releases: DiscogsRelease[]
 }) {
-
-  const filteredReleases = filterReleasesByTitleAndArtist(releases, query)
-
-  // console.log("data", data)
-  // console.log("records.length", records.length)
   console.log("currentPage", currentPage)
+
+  const releases = await fetchFilteredDiscogsCollection(query, currentPage)
 
   return (
     <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-      {filteredReleases.map((release: DiscogsRelease) => (
+      {releases.map((release: DiscogsRelease) => (
         <li key={release.instance_id}>
           <div className="size-[200px] relative">
             <Image
