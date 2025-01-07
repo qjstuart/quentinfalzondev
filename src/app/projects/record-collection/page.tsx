@@ -2,7 +2,7 @@ import Search from "@/components/Search"
 import RecordsList from "@/components/RecordsList"
 import { RecordsListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
-import { fetchDiscogsCollection } from "@/app/lib/util"
+import { fetchDiscogsCollection, filterRecordsByTitleAndArtist } from "@/app/lib/util"
 
 export default async function RecordCollection(props: {
   searchParams?: Promise<{
@@ -14,11 +14,13 @@ export default async function RecordCollection(props: {
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
 
-  console.log("fetching")
   const response = await fetchDiscogsCollection()
   const discogsResponse = await response.json()
+  console.log("discogsResponse", discogsResponse)
 
-  // const totalPages = discogsResponse.pagination.pages
+  const numberOfSearchResults = filterRecordsByTitleAndArtist(discogsResponse.releases, query).length 
+  const numberOfPages = Math.ceil(numberOfSearchResults / 100)
+  console.log("numberOfPages", numberOfPages)
 
   return (
     <>

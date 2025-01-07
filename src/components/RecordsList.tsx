@@ -1,7 +1,7 @@
 import DiscogsRecord from "@/types/DiscogsRecord"
 import DiscogsResponse from "@/types/DiscogsResponse"
 import Image from "next/image"
-import { searchRecordsByTitleAndArtist } from "@/app/lib/util"
+import { filterRecordsByTitleAndArtist } from "@/app/lib/util"
 
 export default async function RecordsList({
   query,
@@ -13,7 +13,7 @@ export default async function RecordsList({
   discogsResponse: DiscogsResponse
 }) {
   const records = discogsResponse.releases
-  const filteredRecords = searchRecordsByTitleAndArtist(records, query)
+  const filteredRecords = filterRecordsByTitleAndArtist(records, query)
 
   // console.log("data", data)
   // console.log("records.length", records.length)

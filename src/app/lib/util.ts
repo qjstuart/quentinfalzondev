@@ -3,7 +3,7 @@ import DiscogRecord from "@/types/DiscogsRecord"
 // As per Lewis Diamond's answer on Stack Overflow
 // (https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript/37511463#37511463),
 // the title and artist are normalized so that the search is accent-insensitive.
-export function searchRecordsByTitleAndArtist(
+export function filterRecordsByTitleAndArtist(
   records: DiscogRecord[],
   query: string
 ) {
