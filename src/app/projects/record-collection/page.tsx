@@ -13,21 +13,6 @@ export default async function RecordCollection(props: {
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
 
-  // const response = await fetch(
-  //   `https://api.discogs.com/users/QJ_Stuart/collection/folders/0/releases?token=${process.env.DISCOGS_TOKEN}&per_page=200&sort=artist`,
-  //   {
-  //     headers: {
-  //       "User-Agent":
-  //         "QuentinFalzonRecordCollection/1.0 +https://github.com/qjstuart/quentinfalzondev",
-  //     },
-  //     next: { revalidate: 3600 },
-  //   }
-  // )
-
-  // const data = await response.json()
-  // console.log("data.releases.Length", data.releases.length)
-  // console.log("currentPage", currentPage)
-
   return (
     <>
       <div className="mb-8">
