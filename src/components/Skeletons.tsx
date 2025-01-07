@@ -4,7 +4,7 @@ export function ReleasesListSkeleton() {
       {[...Array(200)].map((_, index) => (
         <li key={index}>
           <div className="size-[200px] relative bg-gray-200 rounded-md">
-            OWOWOWOWOWO
+            Loading release...
           </div>
         </li>
       ))}
