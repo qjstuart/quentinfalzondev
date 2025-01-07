@@ -1,4 +1,4 @@
-type DiscogsRecord = {
+type DiscogsRelease = {
   id: number
   instance_id: number
   date_added: string
@@ -38,4 +38,4 @@ type Formats = {
   qty: string
 }
 
-export default DiscogsRecord
+export default DiscogsRelease

@@ -1,8 +1,8 @@
 import Search from "@/components/Search"
-import RecordsList from "@/components/RecordsList"
-import { RecordsListSkeleton } from "@/components/Skeletons"
+import ReleasesList from "@/components/ReleasesList"
+import { ReleasesListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
-import { fetchDiscogsCollection, filterRecordsByTitleAndArtist } from "@/app/lib/util"
+import { fetchDiscogsCollection, filterReleasesByTitleAndArtist } from "@/app/lib/util"
 
 export default async function RecordCollection(props: {
   searchParams?: Promise<{
@@ -14,11 +14,10 @@ export default async function RecordCollection(props: {
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
 
-  const response = await fetchDiscogsCollection()
-  const discogsResponse = await response.json()
-  console.log("discogsResponse", discogsResponse)
+  const allReleases = await fetchDiscogsCollection()
+  console.log("allReleases", allReleases)
 
-  const numberOfSearchResults = filterRecordsByTitleAndArtist(discogsResponse.releases, query).length 
+  const numberOfSearchResults = filterReleasesByTitleAndArtist(allReleases, query).length 
   const numberOfPages = Math.ceil(numberOfSearchResults / 100)
   console.log("numberOfPages", numberOfPages)
 
@@ -27,8 +26,8 @@ export default async function RecordCollection(props: {
       <div className="mb-8">
         <Search placeholder="Search your collection" />
       </div>
-      <Suspense key={query + currentPage} fallback={<RecordsListSkeleton />}>
-        <RecordsList query={query} currentPage={currentPage} discogsResponse={discogsResponse}/>
+      <Suspense key={query + currentPage} fallback={<ReleasesListSkeleton />}>
+        <ReleasesList query={query} currentPage={currentPage} releases={allReleases}/>
       </Suspense>
     </>
   )
