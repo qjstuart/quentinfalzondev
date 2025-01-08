@@ -3,8 +3,7 @@ import Pagination from "@/components/Pagination"
 import ReleasesList from "@/components/ReleasesList"
 import { ReleasesListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
-import { fetchFilteredDiscogsCollection, fetchTotalPages } from "@/app/lib/util"
-import { RELEASES_PER_PAGE } from "@/app/lib/util"
+import { fetchTotalPages } from "@/app/lib/util"
 
 export default async function RecordCollection(props: {
   searchParams?: Promise<{
@@ -15,13 +14,7 @@ export default async function RecordCollection(props: {
   const searchParams = await props.searchParams
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
-
   const totalPages = await fetchTotalPages()
-
-  // const releases = await fetchFilteredDiscogsCollection(query, currentPage)
-
-  // const numberOfSearchResults = releases.length
-  // const numberOfPages = Math.ceil(numberOfSearchResults / RELEASES_PER_PAGE)
 
   return (
     <>
@@ -35,7 +28,7 @@ export default async function RecordCollection(props: {
         <ReleasesList query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
-        {/* <Pagination numberOfPages={numberOfPages} /> */}
+        <Pagination numberOfPages={totalPages} />
       </div>
     </>
   )

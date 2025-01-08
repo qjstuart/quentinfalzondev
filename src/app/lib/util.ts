@@ -55,63 +55,60 @@ export async function fetchTotalPages(): Promise<number> {
   return totalPages
 }
 
-export async function fetchFilteredDiscogsCollection(
+async function fetchAllReleases(
+  url: string,
+  releases: DiscogsRelease[] = []
+): Promise<DiscogsRelease[]> {
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent":
+        "QuentinFalzonRecordCollection/1.0 +https://github.com/qjstuart/quentinfalzondev",
+    },
+    next: { revalidate: 3600 },
+    cache: "force-cache",
+  })
+  const data: DiscogsResponse = await response.json()
+  const allReleases = [...releases, ...data.releases]
+
+  // Check if there is a next page to fetch
+  if (data.pagination.urls.next) {
+    return fetchAllReleases(data.pagination.urls.next, allReleases)
+  }
+
+  // Return all releases once there are no more "next" pages
+  return allReleases
+}
+
+function deAccent(searchWord: string) {
+  return searchWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
+export async function fetchFilteredReleases(
   query: string,
   currentPage: number
 ): Promise<DiscogsRelease[]> {
-  async function fetchAllPages(
-    url: string,
-    releases: DiscogsRelease[] = []
-  ): Promise<DiscogsRelease[]> {
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent":
-          "QuentinFalzonRecordCollection/1.0 +https://github.com/qjstuart/quentinfalzondev",
-      },
-      next: { revalidate: 3600 },
-      cache: "force-cache",
-    })
-    const data: DiscogsResponse = await response.json()
-    const allReleases = [...releases, ...data.releases]
-
-    // Check if there is a next page to fetch
-    if (data.pagination.urls.next) {
-      return fetchAllPages(data.pagination.urls.next, allReleases)
-    }
-
-    // Return all releases once there are no more "next" pages
-    return allReleases
-  }
-
-  const allReleases = await fetchAllPages(BASE_URL)
+  const allReleases = await fetchAllReleases(BASE_URL)
 
   const searchWord = query.toLowerCase()
 
   const filteredReleases = allReleases.filter((release) => {
-    const releaseInfo = release.basic_information
-    const title = releaseInfo.title.toLowerCase()
-    const artistNames = releaseInfo.artists.map((artist) =>
+    const title = release.basic_information.title.toLowerCase()
+    const artistNames = release.basic_information.artists.map((artist) =>
       artist.name.toLowerCase()
     )
 
     return (
       title.includes(searchWord) ||
-      title
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .includes(searchWord) ||
+      deAccent(title).includes(searchWord) ||
       artistNames.some(
         (artistName) =>
           artistName.includes(searchWord) ||
-          artistName
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .includes(searchWord)
+          deAccent(artistName).includes(searchWord)
       )
     )
   })
 
-  console.log("fetchFilteredDiscogsCollection(): current page ", currentPage)
+  console.log("fetchFilteredReleases(): current page ", currentPage)
   console.log("filteredReleases", filteredReleases)
   const startIndex = (currentPage - 1) * RELEASES_PER_PAGE
   const endIndex = startIndex + RELEASES_PER_PAGE

@@ -1,7 +1,6 @@
 import DiscogsRelease from "@/types/DiscogsRelease"
-import DiscogsResponse from "@/types/DiscogsResponse"
 import Image from "next/image"
-import { fetchFilteredDiscogsCollection } from "@/app/lib/util"
+import { fetchFilteredReleases } from "@/app/lib/util"
 
 export default async function RecordsList({
   query,
@@ -12,7 +11,7 @@ export default async function RecordsList({
 }) {
   console.log("currentPage", currentPage)
 
-  const releases = await fetchFilteredDiscogsCollection(query, currentPage)
+  const releases = await fetchFilteredReleases(query, currentPage)
 
   return (
     <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
