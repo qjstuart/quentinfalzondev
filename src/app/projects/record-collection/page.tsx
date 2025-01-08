@@ -14,7 +14,7 @@ export default async function RecordCollection(props: {
   const searchParams = await props.searchParams
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
-  const totalPages = await fetchTotalPages()
+  const totalPages = await fetchTotalPages(query)
 
   return (
     <>

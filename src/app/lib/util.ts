@@ -4,17 +4,12 @@ import DiscogsResponse from "@/types/DiscogsResponse"
 export const RELEASES_PER_PAGE = 100
 const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/0/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
 
-export async function fetchTotalPages(): Promise<number> {
-  const response = await fetch(BASE_URL, {
-    headers: {
-      "User-Agent": `${process.env.DISCOGS_USERAGENT}`,
-    },
-    next: { revalidate: 3600 },
-    cache: "force-cache",
-  })
-  const data: DiscogsResponse = await response.json()
-  const totalPages = data.pagination.pages
-  return totalPages
+export async function fetchTotalPages(query: string): Promise<number> {
+  // Get releases which match the search word and calculate the number of pages required to display them.
+  const allReleases = await fetchAllReleases(BASE_URL)
+  const filteredReleases = filterReleases(allReleases, query)
+  console.log("filteredReleases", filteredReleases)
+  return Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
 }
 
 async function fetchAllReleases(
@@ -49,16 +44,12 @@ function deAccent(searchWord: string) {
   return searchWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 }
 
-export async function fetchFilteredReleases(
-  query: string,
-  currentPage: number
-): Promise<DiscogsRelease[]> {
-  // Fetch all releases recursively page by page
-  const allReleases = await fetchAllReleases(BASE_URL)
-  const searchWord = query.toLowerCase()
-
+function filterReleases(
+  releases: DiscogsRelease[],
+  searchWord: string
+): DiscogsRelease[] {
   // Filter releases by artist or title. There can be more than one artist per release.
-  const filteredReleases = allReleases.filter((release) => {
+  return releases.filter((release) => {
     const title = release.basic_information.title.toLowerCase()
     const artistNames = release.basic_information.artists.map((artist) =>
       artist.name.toLowerCase()
@@ -74,6 +65,18 @@ export async function fetchFilteredReleases(
       )
     )
   })
+}
+
+export async function fetchFilteredReleases(
+  query: string,
+  currentPage: number
+): Promise<DiscogsRelease[]> {
+  // Fetch all releases recursively page by page
+  const allReleases = await fetchAllReleases(BASE_URL)
+  const searchWord = query.toLowerCase()
+
+  // Filter releases by artist or title. There can be more than one artist per release.
+  const filteredReleases = filterReleases(allReleases, searchWord)
 
   // Return the releases for the current page.
   const startIndex = (currentPage - 1) * RELEASES_PER_PAGE
