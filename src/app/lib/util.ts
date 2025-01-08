@@ -8,7 +8,6 @@ export async function fetchTotalPages(query: string): Promise<number> {
   // Get releases which match the search word and calculate the number of pages required to display them.
   const allReleases = await fetchAllReleases(BASE_URL)
   const filteredReleases = filterReleases(allReleases, query)
-  console.log("filteredReleases", filteredReleases)
   return Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
 }
 
@@ -50,6 +49,7 @@ function filterReleases(
 ): DiscogsRelease[] {
   // Filter releases by artist or title. There can be more than one artist per release.
   return releases.filter((release) => {
+    searchWord = searchWord.toLowerCase()
     const title = release.basic_information.title.toLowerCase()
     const artistNames = release.basic_information.artists.map((artist) =>
       artist.name.toLowerCase()
