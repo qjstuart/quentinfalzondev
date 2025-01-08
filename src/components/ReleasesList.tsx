@@ -9,13 +9,11 @@ export default async function RecordsList({
   query: string
   currentPage: number
 }) {
-  console.log("currentPage", currentPage)
-
   const releases = await fetchFilteredReleases(query, currentPage)
 
   return (
     <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-      {releases.map((release: DiscogsRelease) => (
+      {releases.map((release: DiscogsRelease, i) => (
         <li key={release.instance_id}>
           <div className="size-[200px] relative">
             <Image
@@ -26,13 +24,6 @@ export default async function RecordsList({
               className="rounded-md hover:cursor-pointer"
             />
           </div>
-          {/* 
-        <h3>{release.basic_information.title}</h3>
-        <p>{release.basic_information.artists[0].name}</p>
-        <p>{release.basic_information.year}</p>
-        <p>{release.basic_information.genres.join(", ")}</p>
-        <p>{release.basic_information.styles.join(", ")}</p>
-        <p>{release.basic_information.formats[0].name}</p> */}
         </li>
       ))}
     </ul>
