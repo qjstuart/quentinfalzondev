@@ -1,8 +1,8 @@
 import DiscogsRelease from "@/types/DiscogsRelease"
 import DiscogsResponse from "@/types/DiscogsResponse"
 
-export const RELEASES_PER_PAGE = 100
-const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/0/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
+export const RELEASES_PER_PAGE = 25
+const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/${process.env.DISCOGS_FOLDER_ID}/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
 
 export async function fetchTotalPages(query: string): Promise<number> {
   // Get releases which match the search word and calculate the number of pages required to display them.
@@ -49,7 +49,7 @@ function filterReleases(
 ): DiscogsRelease[] {
   // Filter releases by artist or title. There can be more than one artist per release.
   return releases.filter((release) => {
-    searchWord = searchWord.toLowerCase()
+    searchWord = searchWord.toLowerCase().replace(/\s+/g, " ") || ""
     const title = release.basic_information.title.toLowerCase()
     const artistNames = release.basic_information.artists.map((artist) =>
       artist.name.toLowerCase()
