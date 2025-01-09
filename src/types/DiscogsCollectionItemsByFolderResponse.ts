@@ -1,8 +1,8 @@
-import DiscogsRelease from "./DiscogsRelease"
+import DiscogsCollectionItem from "./DiscogsCollectionItem"
 
-type DiscogsResponse = {
+type DiscogsCollectionItemsByFolderResponse = {
   pagination: Pagination
-  releases: DiscogsRelease[]
+  releases: DiscogsCollectionItem[]
 }
 
 type Pagination = {
@@ -20,4 +20,4 @@ type PaginationUrls = {
   last: string
 }
 
-export default DiscogsResponse
+export default DiscogsCollectionItemsByFolderResponse

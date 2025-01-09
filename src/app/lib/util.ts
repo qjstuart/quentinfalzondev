@@ -1,30 +1,25 @@
+import DiscogsCollectionItem from "@/types/DiscogsCollectionItem"
+import DiscogsCollectionItemsByFolderResponse from "@/types/DiscogsCollectionItemsByFolderResponse"
 import DiscogsRelease from "@/types/DiscogsRelease"
-import DiscogsResponse from "@/types/DiscogsResponse"
 
 export const RELEASES_PER_PAGE = 25
 const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/${process.env.DISCOGS_FOLDER_ID}/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
-
-export async function fetchTotalPages(query: string): Promise<number> {
-  // Get releases which match the search word and calculate the number of pages required to display them.
-  const allReleases = await fetchAllReleases(BASE_URL)
-  const filteredReleases = filterReleases(allReleases, query)
-  return Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
-}
+const RELEASE_URL = `https://api.discogs.com/releases/`
 
 async function fetchAllReleases(
   url: string,
-  releases: DiscogsRelease[] = []
-): Promise<DiscogsRelease[]> {
+  releases: DiscogsCollectionItem[] = []
+): Promise<DiscogsCollectionItem[]> {
   // Recursively fetch all releases from the Discogs API, page by page until there are no more "next" pages.
   const response = await fetch(url, {
     headers: {
       "User-Agent": `${process.env.DISCOGS_USERAGENT}`,
     },
     next: { revalidate: 3600 },
-    cache: "force-cache",
+    // cache: "force-cache",
   })
 
-  const data: DiscogsResponse = await response.json()
+  const data: DiscogsCollectionItemsByFolderResponse = await response.json()
   const allReleases = [...releases, ...(data.releases || [])]
 
   // Check if there is a "next" page to fetch
@@ -36,17 +31,32 @@ async function fetchAllReleases(
   return allReleases
 }
 
-function deAccent(searchWord: string) {
-  // As per Lewis Diamond's answer on Stack Overflow
-  // (https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript/37511463#37511463),
-  // search words should also be normalized so that the search is accent-insensitive.
-  return searchWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+export async function fetchFilteredReleases(
+  query: string,
+  currentPage: number
+): Promise<DiscogsCollectionItem[]> {
+  // Fetch all releases recursively page by page
+  const allReleases = await fetchAllReleases(BASE_URL)
+  const searchWord = query.toLowerCase()
+
+  // Filter releases by artist or title. There can be more than one artist per release.
+  const filteredReleases = filterReleases(allReleases, searchWord)
+
+  // Return the releases for the current page.
+  const startIndex = (currentPage - 1) * RELEASES_PER_PAGE
+  const endIndex = startIndex + RELEASES_PER_PAGE
+  const filteredReleasesForCurrentPage = filteredReleases.slice(
+    startIndex,
+    endIndex
+  )
+
+  return filteredReleasesForCurrentPage
 }
 
 function filterReleases(
-  releases: DiscogsRelease[],
+  releases: DiscogsCollectionItem[],
   searchWord: string
-): DiscogsRelease[] {
+): DiscogsCollectionItem[] {
   // Filter releases by artist or title. There can be more than one artist per release.
   return releases.filter((release) => {
     searchWord = searchWord.toLowerCase().replace(/\s+/g, " ") || ""
@@ -67,26 +77,11 @@ function filterReleases(
   })
 }
 
-export async function fetchFilteredReleases(
-  query: string,
-  currentPage: number
-): Promise<DiscogsRelease[]> {
-  // Fetch all releases recursively page by page
+export async function fetchTotalPages(query: string): Promise<number> {
+  // Get releases which match the search word and calculate the number of pages required to display them.
   const allReleases = await fetchAllReleases(BASE_URL)
-  const searchWord = query.toLowerCase()
-
-  // Filter releases by artist or title. There can be more than one artist per release.
-  const filteredReleases = filterReleases(allReleases, searchWord)
-
-  // Return the releases for the current page.
-  const startIndex = (currentPage - 1) * RELEASES_PER_PAGE
-  const endIndex = startIndex + RELEASES_PER_PAGE
-  const filteredReleasesForCurrentPage = filteredReleases.slice(
-    startIndex,
-    endIndex
-  )
-
-  return filteredReleasesForCurrentPage
+  const filteredReleases = filterReleases(allReleases, query)
+  return Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
 }
 
 export const generatePagination = (currentPage: number, totalPages: number) => {
@@ -120,4 +115,29 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     "...",
     totalPages,
   ]
+}
+
+function deAccent(searchWord: string) {
+  // As per Lewis Diamond's answer on Stack Overflow
+  // (https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript/37511463#37511463),
+  // search words should also be normalized so that the search is accent-insensitive.
+  return searchWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+}
+
+export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {
+  const response = await fetch(`${RELEASE_URL}${releaseId}`, {
+    headers: {
+      "User-Agent": `${process.env.DISCOGS_USERAGENT}`,
+    },
+    next: { revalidate: 3600 },
+    // cache: "force-cache",
+  })
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch release: ${response.status} ${response.statusText}`
+    )
+  }
+
+  return await response.json()
 }

@@ -1,41 +1,42 @@
-type DiscogsRelease = {
-  id: number
-  instance_id: number
-  date_added: string
-  rating: 0
-  basic_information: BasicInformation
-}
+import { Artist } from "./DiscogsCollectionItem"
 
-type BasicInformation = {
+type DiscogsRelease = {
   artists: Artist[]
-  cover_image: string
-  formats: Formats[]
+  country: string
   genres: string[]
-  id: number
-  // ?labels: Label[]
-  // ?master_id: number
+  images: Image[]
+  labels: Label[]
   master_url: string
-  resource_url: string
   styles: string[]
-  thumb: string
   title: string
+  tracklist: Track[]
   year: number
 }
 
-export type Artist = {
-  anv: string
-  id: string
-  join: string
-  name: string
+type Image = {
+  height: number
   resource_url: string
-  role: string
-  tracks: string
+  type: string
+  uri: string
+  uri150: string
+  width: number
 }
 
-type Formats = {
-  descriptions: string[]
+type Label = {
+  catno: string
+  entity_type: string
+
+  entity_type_name: string
+  id: number
   name: string
-  qty: string
+  resource_url: string
+}
+
+type Track = {
+  duration: string
+  position: string
+  title: string
+  type_: string
 }
 
 export default DiscogsRelease
