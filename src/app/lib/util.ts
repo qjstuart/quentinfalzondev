@@ -141,3 +141,50 @@ export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {
 
   return await response.json()
 }
+
+export async function fetchAppleMusicId(
+  release: DiscogsRelease
+): Promise<void> {
+  function throwNoResultsError(searchQuery: string) {
+    throw new Error(`No matching results for ${searchQuery}`)
+  }
+
+  const releaseName = release.title.toLowerCase()
+  const mainArtistName = release.artists[0].name.toLowerCase()
+  const iTunesSearchQuery = `${mainArtistName} ${releaseName}`.replaceAll(
+    " ",
+    "+"
+  )
+  const response = await fetch(
+    `https://itunes.apple.com/search?term=${iTunesSearchQuery}&media=music&explicit=Y&entity=album`
+  )
+
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch from iTunes: ${response.status} ${response.statusText}`
+    )
+  }
+
+  const iTunesData = await response.json()
+
+  if (!iTunesData.results || iTunesData.results.length < 0) {
+    throwNoResultsError(iTunesSearchQuery)
+  }
+
+  const matchingResult = iTunesData.results.find(
+    (a: { collectionName: string; artistName: string }) =>
+      releaseName
+        .split(" ")
+        .map((name) =>
+          a.collectionName.replace(":", "").toLowerCase().includes(name)
+        )
+        .includes(true) && a.artistName.toLowerCase().includes(mainArtistName)
+  )
+
+  if (!matchingResult) {
+    throwNoResultsError(iTunesSearchQuery)
+  }
+
+  console.log("result:", matchingResult)
+  return matchingResult
+}
