@@ -3,7 +3,7 @@ import Pagination from "@/components/Pagination"
 import ReleasesList from "@/components/ReleasesList"
 import { ReleasesListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
-import { fetchTotalPages } from "@/app/lib/util"
+import { fetchTotalPages, fetchWithErrorHandling } from "@/app/lib/util"
 
 export default async function RecordCollection(props: {
   searchParams?: Promise<{
@@ -14,7 +14,11 @@ export default async function RecordCollection(props: {
   const searchParams = await props.searchParams
   const query = searchParams?.query || ""
   const currentPage = Number(searchParams?.page) || 1
-  const totalPages = await fetchTotalPages(query)
+  const totalPages = await fetchWithErrorHandling(() => fetchTotalPages(query))
+
+  if (!totalPages) {
+    return <div>Error fetching number of total pages</div>
+  }
 
   return (
     <>

@@ -1,7 +1,6 @@
-import { fetchRelease } from "@/app/lib/util"
+import { fetchRelease, fetchAppleMusicId, fetchWithErrorHandling } from "@/app/lib/util"
 import { Suspense } from "react"
 import AppleMusicPlayer from "@/components/AppleMusicPlayer"
-import DiscogsRelease from "@/types/DiscogsRelease"
 
 export default async function ReleaseDetails({
   params,
@@ -9,32 +8,29 @@ export default async function ReleaseDetails({
   params: Promise<{ releaseId: string }>
 }) {
   const { releaseId } = await params
-  console.log("params:", releaseId)
-  let release: DiscogsRelease
+  const release = await fetchWithErrorHandling(() => fetchRelease(releaseId))
 
-  try {
-    release = await fetchRelease(releaseId)
-  } catch (error) {
-    return <div>{(error as Error).message}</div>
+  if (!release) {
+    return <div>Error fetching release</div>
   }
 
-  // try {
-  //   const appleMusicId = await fetchAppleMusicId(release)
-  // } catch (error) {
-  //   return <div>{(error as Error).message}</div>
-  // }
+  const appleMusicId = await fetchWithErrorHandling(() => fetchAppleMusicId(release))
+
+  if (!appleMusicId) {
+    return <div>Error fetching Apple Music ID</div>
+  }
 
   return (
-    <>
+    <div className="bg-blue">
       <h1>{release.title}</h1>
       <div>release id is {releaseId}</div>
 
       <section>
         <Suspense fallback={<p>Loading video...</p>}>
-          <AppleMusicPlayer />
+          <AppleMusicPlayer appleMusicId={appleMusicId} />
         </Suspense>
         {/* Other content of the page */}
       </section>
-    </>
+    </div>
   )
 }

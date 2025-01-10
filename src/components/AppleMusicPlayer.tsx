@@ -1,10 +1,16 @@
-export default function AppleMusicPlayer() {
+export default function AppleMusicPlayer({
+  appleMusicId,
+}: {
+  appleMusicId: string
+}) {
   return (
-    <div className="h-[450px]">
+    <div className="h-[450px] max-w-[660px] w-full">
       <iframe
-        src={`https://embed.music.apple.com/us/album/1753073482`}
+        className="size-full rounded-[15px]"
+        src={`https://embed.music.apple.com/us/album/${appleMusicId}?theme=auto`}
         allow="encrypted-media; fullscreen; clipboard-write;"
-        className="size-full"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        title="Media player"
       ></iframe>
     </div>
   )

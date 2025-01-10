@@ -1,6 +1,7 @@
 import DiscogsCollectionItem from "@/types/DiscogsCollectionItem"
 import DiscogsCollectionItemsByFolderResponse from "@/types/DiscogsCollectionItemsByFolderResponse"
 import DiscogsRelease from "@/types/DiscogsRelease"
+import AppleMusicRelease from "@/types/AppleMusicRelease"
 
 export const RELEASES_PER_PAGE = 25
 const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/${process.env.DISCOGS_FOLDER_ID}/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
@@ -18,6 +19,10 @@ async function fetchAllReleases(
     next: { revalidate: 3600 },
     // cache: "force-cache",
   })
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch releases: ${response.status} ${response.statusText}`)
+  }
 
   const data: DiscogsCollectionItemsByFolderResponse = await response.json()
   const allReleases = [...releases, ...(data.releases || [])]
@@ -45,10 +50,7 @@ export async function fetchFilteredReleases(
   // Return the releases for the current page.
   const startIndex = (currentPage - 1) * RELEASES_PER_PAGE
   const endIndex = startIndex + RELEASES_PER_PAGE
-  const filteredReleasesForCurrentPage = filteredReleases.slice(
-    startIndex,
-    endIndex
-  )
+  const filteredReleasesForCurrentPage = filteredReleases.slice(startIndex, endIndex)
 
   return filteredReleasesForCurrentPage
 }
@@ -61,17 +63,13 @@ function filterReleases(
   return releases.filter((release) => {
     searchWord = searchWord.toLowerCase().replace(/\s+/g, " ") || ""
     const title = release.basic_information.title.toLowerCase()
-    const artistNames = release.basic_information.artists.map((artist) =>
-      artist.name.toLowerCase()
-    )
+    const artistNames = release.basic_information.artists.map((artist) => artist.name.toLowerCase())
 
     return (
       title.includes(searchWord) ||
       deAccent(title).includes(searchWord) ||
       artistNames.some(
-        (artistName) =>
-          artistName.includes(searchWord) ||
-          deAccent(artistName).includes(searchWord)
+        (artistName) => artistName.includes(searchWord) || deAccent(artistName).includes(searchWord)
       )
     )
   })
@@ -106,15 +104,7 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
   // If the current page is somewhere in the middle,
   // show the first page, an ellipsis, the current page and its neighbors,
   // another ellipsis, and the last page.
-  return [
-    1,
-    "...",
-    currentPage - 1,
-    currentPage,
-    currentPage + 1,
-    "...",
-    totalPages,
-  ]
+  return [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages]
 }
 
 function deAccent(searchWord: string) {
@@ -134,24 +124,21 @@ export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {
   })
 
   if (!response.ok) {
-    throw new Error(
-      `Failed to fetch release: ${response.status} ${response.statusText}`
-    )
+    throw new Error(`Failed to fetch release: ${response.status} ${response.statusText}`)
   }
 
   return await response.json()
 }
 
-export async function fetchAppleMusicId(
-  release: DiscogsRelease
-): Promise<void> {
+export async function fetchAppleMusicId(discogsRelease: DiscogsRelease): Promise<string> {
   function throwNoResultsError(searchQuery: string) {
     throw new Error(`No matching results for ${searchQuery}`)
   }
 
-  const releaseName = release.title.toLowerCase()
-  const mainArtistName = release.artists[0].name.toLowerCase()
-  const iTunesSearchQuery = `${mainArtistName} ${releaseName}`.replaceAll(
+  const normalizedDiscogsReleaseTitle = deAccent(discogsRelease.title.toLowerCase())
+  const normalizedDiscogsReleaseTitleWords = normalizedDiscogsReleaseTitle.split(" ")
+  const mainArtistName = deAccent(discogsRelease.artists[0].name.toLowerCase())
+  const iTunesSearchQuery = `${mainArtistName} ${normalizedDiscogsReleaseTitle}`.replaceAll(
     " ",
     "+"
   )
@@ -160,31 +147,56 @@ export async function fetchAppleMusicId(
   )
 
   if (!response.ok) {
-    throw new Error(
-      `Failed to fetch from iTunes: ${response.status} ${response.statusText}`
-    )
+    throw new Error(`Failed to fetch from iTunes: ${response.status} ${response.statusText}`)
   }
 
-  const iTunesData = await response.json()
+  const { resultCount, results: appleMusicReleases } = await response.json()
 
-  if (!iTunesData.results || iTunesData.results.length < 0) {
+  if (resultCount < 1) {
     throwNoResultsError(iTunesSearchQuery)
   }
 
-  const matchingResult = iTunesData.results.find(
-    (a: { collectionName: string; artistName: string }) =>
-      releaseName
-        .split(" ")
-        .map((name) =>
-          a.collectionName.replace(":", "").toLowerCase().includes(name)
-        )
-        .includes(true) && a.artistName.toLowerCase().includes(mainArtistName)
+  // For each Apple Music release matching the iTunes search, we normalize its collectionName & artistName properties.
+  // Both properties are converted to lowercase. For collectionName, any colon characters ":" are stripped.
+  const normalizedAppleMusicReleases = appleMusicReleases.map(
+    (appleMusicRelease: AppleMusicRelease) => ({
+      ...appleMusicRelease,
+      artistName: deAccent(appleMusicRelease.artistName?.toLowerCase()),
+      collectionName: deAccent(appleMusicRelease.collectionName?.replace(":", "").toLowerCase()),
+    })
   )
 
-  if (!matchingResult) {
+  function appleReleaseTitleIncludesDiscogsReleaseTitleWords(
+    appleMusicRelease: AppleMusicRelease
+  ): boolean {
+    // For each word in the Discogs release title, check if the word contained in the Apple Music release title.
+    // The map() method generates an array of boolean values, with each element corresponding to a word in the Discogs release title.
+    // e.g. For a normalized Discogs release title of "try the feeling" and a normalized Apple Music release title of "try the feelin'""
+    // the resulting appray would be [true, true, false]. For our scenario, we are happy with at least one true element in the array.
+    return normalizedDiscogsReleaseTitleWords
+      .map((word) => appleMusicRelease.collectionName?.includes(word))
+      .includes(true)
+  }
+
+  const matchingAppleMusicRelease = normalizedAppleMusicReleases.find(
+    // Find the first result which satisfies both expressions (separated by &&)
+    (normalizedAppleMusicRelease: AppleMusicRelease) =>
+      appleReleaseTitleIncludesDiscogsReleaseTitleWords(normalizedAppleMusicRelease) &&
+      normalizedAppleMusicRelease.artistName.includes(mainArtistName)
+  )
+
+  if (!matchingAppleMusicRelease) {
     throwNoResultsError(iTunesSearchQuery)
   }
 
-  console.log("result:", matchingResult)
-  return matchingResult
+  return matchingAppleMusicRelease.collectionId.toString()
+}
+
+export async function fetchWithErrorHandling<T>(fetchFn: () => Promise<T>): Promise<T | null> {
+  try {
+    return await fetchFn()
+  } catch (error) {
+    console.error(error)
+    return null
+  }
 }
