@@ -4,6 +4,7 @@ import ReleasesList from "@/components/ReleasesList"
 import { ReleasesListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
 import { fetchTotalPages, fetchWithErrorHandling } from "@/app/lib/util"
+import Link from "next/link"
 
 export default async function RecordCollection(props: {
   searchParams?: Promise<{
@@ -18,6 +19,16 @@ export default async function RecordCollection(props: {
 
   if (!totalPages) {
     return <div>Error fetching number of total pages</div>
+  }
+
+  // If user enters a non-existent page number in URL
+  if (currentPage > totalPages) {
+    return (
+      <div>
+        Page not found!
+        <Link href="/">Back to homepage</Link>
+      </div>
+    )
   }
 
   return (
