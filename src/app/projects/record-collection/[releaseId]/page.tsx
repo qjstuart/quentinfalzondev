@@ -1,6 +1,7 @@
 import { fetchRelease, fetchAppleMusicId, fetchWithErrorHandling } from "@/app/lib/util"
 import { Suspense } from "react"
 import AppleMusicPlayer from "@/components/AppleMusicPlayer"
+import DiscogsReleaseImageCarousel from "@/components/DiscogsReleaseImageCarousel"
 
 export default async function ReleaseDetails({
   params,
@@ -25,11 +26,12 @@ export default async function ReleaseDetails({
       <h1>{release.title}</h1>
       <div>release id is {releaseId}</div>
 
+      <DiscogsReleaseImageCarousel images={release.images}/>
+
       <section>
         <Suspense fallback={<p>Loading video...</p>}>
           <AppleMusicPlayer appleMusicId={appleMusicId} />
         </Suspense>
-        {/* Other content of the page */}
       </section>
     </div>
   )

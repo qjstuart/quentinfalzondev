@@ -13,7 +13,7 @@ type DiscogsRelease = {
   year: number
 }
 
-type Image = {
+export type Image = {
   height: number
   resource_url: string
   type: string
