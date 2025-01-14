@@ -8,7 +8,9 @@ const projectInfo = {
   imageSrc: "/record_player_silver.png",
   about:
     "I wanted to create a tool to organize and showcase my vinyl collection. With this app, I can pull data directly from the Discogs API and display details about each record",
-}
+  link:
+    "/projects/record-collection/"
+  }
 
 const project: Project = {
   id: projectInfo.id,
@@ -16,12 +18,13 @@ const project: Project = {
   description: projectInfo.description,
   imageSrc: projectInfo.imageSrc,
   about: projectInfo.about,
+  link: projectInfo.link,
 }
 
 export default function RecordCollectionAboutPage() {
   return (
     <>
-      <ProjectAboutPage project={project}/>
+      <ProjectAboutPage project={project} />
     </>
   )
 }

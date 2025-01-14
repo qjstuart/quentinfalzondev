@@ -4,4 +4,5 @@ export type Project = {
   description: string
   about: string
   imageSrc: string
+  link: string
 }

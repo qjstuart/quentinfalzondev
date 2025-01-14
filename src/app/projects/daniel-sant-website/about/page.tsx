@@ -8,6 +8,7 @@ const projectInfo = {
   imageSrc: "/record_player_silver.png",
   about:
     "Tasked to build a functional website for pianist/composer Daniel Sant. The goal is to have a platform for his audience to find important information, and is also being expanded to allow for people to view Daniel's sheet music",
+  link: "https://www.danielsant.com",
 }
 
 const project: Project = {
@@ -16,6 +17,7 @@ const project: Project = {
   description: projectInfo.description,
   imageSrc: projectInfo.imageSrc,
   about: projectInfo.about,
+  link: projectInfo.link,
 }
 
 export default function RecordCollectionAboutPage() {

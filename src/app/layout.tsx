@@ -33,7 +33,7 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          <main className="flex flex-col items-center py-12 mx-auto">
+          <main className="flex flex-col py-12">
             {children}
           </main>
           <footer>I am the footer</footer>

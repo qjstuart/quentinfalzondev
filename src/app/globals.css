@@ -6,12 +6,14 @@
 @layer base {
   h1 {
     @apply text-4xl sm:text-6xl;
-    font-family: var(--font-pt-sans);
+    font-family: var(--font-primary);
   }
-  h3 {
+
+  h2 {
     @apply text-2xl;
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
   }
+
   :root {
     --background-color: 255, 255, 255;
     --project-card-bg: 255, 255, 255;
@@ -51,4 +53,16 @@ header {
 
 p {
   font-family: var(--font-primary);
+}
+
+/* .splide .splide__arrow--prev {
+  @apply absolute left-[-40px] top-1/2 transform -translate-y-1/2;
+}
+
+.splide .splide__arrow--next {
+  @apply absolute right-[-40px] top-1/2 transform -translate-y-1/2;
+} */
+
+.splide .splide__pagination {
+  @apply relative mt-3;
 }

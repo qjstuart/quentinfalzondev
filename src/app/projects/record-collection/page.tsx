@@ -32,7 +32,7 @@ export default async function RecordCollection(props: {
   }
 
   return (
-    <>
+    <section className="mx-auto flex flex-col items-center">
       <div className="mb-8">
         <Search placeholder="Search by artist or title" />
       </div>
@@ -45,6 +45,6 @@ export default async function RecordCollection(props: {
       <div className="mt-5 flex w-full justify-center">
         <Pagination numberOfPages={totalPages} />
       </div>
-    </>
+    </section>
   )
 }

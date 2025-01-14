@@ -11,7 +11,7 @@ export default function Projects() {
             <ProjectCard
               iconSrc="/record_player_silver.png"
               description="Music Catalog Browser"
-              href={"/projects/record-collection"}
+              href={"/projects/record-collection/about"}
             />
             <ProjectCard
               iconSrc="/daily_word_detectives.png"

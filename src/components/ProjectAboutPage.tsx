@@ -1,5 +1,6 @@
 import { Project } from "@/types/Project"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function ProjectAboutPage({ project }: { project: Project }) {
   return (
@@ -13,6 +14,9 @@ export default function ProjectAboutPage({ project }: { project: Project }) {
           alt={project.description}
         />
       </div>
+      <button>
+        <Link href={project.link}>Go to project</Link>
+      </button>
     </>
   )
 }
