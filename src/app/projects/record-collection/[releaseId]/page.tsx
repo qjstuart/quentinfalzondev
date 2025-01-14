@@ -1,4 +1,4 @@
-import { fetchRelease, fetchAppleMusicId, fetchWithErrorHandling } from "@/app/lib/util"
+import { fetchRelease, fetchAppleMusicId, fetchWithErrorHandling } from "@/app/lib/utils"
 import { Suspense } from "react"
 import AppleMusicPlayer from "@/components/AppleMusicPlayer"
 import DiscogsReleaseImageCarousel from "@/components/DiscogsReleaseImageCarousel"

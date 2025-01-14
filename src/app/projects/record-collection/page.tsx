@@ -3,7 +3,7 @@ import Pagination from "@/components/Pagination"
 import ReleasesList from "@/components/ReleasesList"
 import { ReleasesListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
-import { fetchTotalPages, fetchWithErrorHandling } from "@/app/lib/util"
+import { fetchTotalPages, fetchWithErrorHandling } from "@/app/lib/utils"
 import Link from "next/link"
 
 export default async function RecordCollection(props: {

@@ -1,4 +1,4 @@
-import { RELEASES_PER_PAGE } from "@/app/lib/util"
+import { RELEASES_PER_PAGE } from "@/app/lib/utils"
 
 export function ReleasesListSkeleton() {
   return (

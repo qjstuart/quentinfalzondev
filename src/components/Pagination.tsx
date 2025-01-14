@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6"
 import clsx from "clsx"
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
-import { generatePagination } from "@/app/lib/util"
+import { generatePagination } from "@/app/lib/utils"
 
 export default function Pagination({
   numberOfPages,

@@ -1,7 +1,7 @@
 import DiscogsCollectionItem from "@/types/DiscogsCollectionItem"
 import Image from "next/image"
 import Link from "next/link"
-import { fetchFilteredReleases } from "@/app/lib/util"
+import { fetchFilteredReleases } from "@/app/lib/utils"
 
 export default async function RecordsList({
   query,
