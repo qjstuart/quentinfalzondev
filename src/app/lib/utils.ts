@@ -115,6 +115,13 @@ function deAccent(searchWord: string) {
 }
 
 export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {
+  // A release should only be fetched if it is part of the Discogs collection
+  const allReleases = await fetchAllReleases(BASE_URL)
+
+  if (allReleases.filter((release) => release.id.toString() === releaseId).length === 0) {
+    throw new Error(`Release ${releaseId} is not part of the collection.`)
+  }
+
   const response = await fetch(`${RELEASE_URL}${releaseId}`, {
     headers: {
       "User-Agent": `${process.env.DISCOGS_USERAGENT}`,
@@ -196,7 +203,7 @@ export async function fetchWithErrorHandling<T>(fetchFn: () => Promise<T>): Prom
   try {
     return await fetchFn()
   } catch (error) {
-    console.error(error)
+    // console.error(error)
     return null
   }
 }
