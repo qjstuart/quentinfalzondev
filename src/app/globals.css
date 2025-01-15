@@ -16,8 +16,11 @@
 
   :root {
     --background-color: 255, 255, 255;
+    --foreground: 0, 0, 0;
     --project-card-bg: 255, 255, 255;
     --project-card-bg-hover: 240, 240, 240;
+    --release-images-card: 248, 248, 250;
+    --carousel-active-page: 28, 28, 30;
 
     --copy-primary: 0, 0, 0;
 
@@ -28,8 +31,11 @@
 
 .dark {
   --background-color: 0, 0, 0;
+  --foreground: 255, 255, 255;
   --project-card-bg: 10, 10, 10;
   --project-card-bg-hover: 15, 15, 15;
+  --release-images-card: 28, 28, 30;
+  --carousel-active-page: 248, 248, 250;
 
   --copy-primary: 255, 255, 255;
 
@@ -65,4 +71,13 @@ p {
 
 .splide .splide__pagination {
   @apply relative mt-3;
+}
+
+.splide .splide__pagination .splide__pagination__page.is-active {
+  background: rgba(var(--carousel-active-page));
+}
+
+/* Taken from https://ui.aceternity.com/tools/box-shadows */
+.boxshadow-studydesk {
+  @apply shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)];
 }

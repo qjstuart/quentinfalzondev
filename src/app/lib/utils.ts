@@ -150,7 +150,10 @@ export async function fetchAppleMusicId(discogsRelease: DiscogsRelease): Promise
     "+"
   )
   const response = await fetch(
-    `https://itunes.apple.com/search?term=${iTunesSearchQuery}&media=music&explicit=Y&entity=album`
+    `https://itunes.apple.com/search?term=${iTunesSearchQuery}&media=music&explicit=Y&entity=album`,
+    {
+      next: { revalidate: 3600 },
+    }
   )
 
   if (!response.ok) {
@@ -203,7 +206,7 @@ export async function fetchWithErrorHandling<T>(fetchFn: () => Promise<T>): Prom
   try {
     return await fetchFn()
   } catch (error) {
-    console.error(error)
+    console.log(error)
     return null
   }
 }

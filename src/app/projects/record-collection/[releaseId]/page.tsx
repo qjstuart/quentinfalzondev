@@ -18,29 +18,32 @@ export default async function ReleaseDetails({
   const appleMusicId = await fetchWithErrorHandling(() => fetchAppleMusicId(release))
 
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-      {/* Artists and title */}
-      <section className="flex flex-col items-center">
-        <h2>
-          {release.artists.length === 1 ? release.artists[0].name : "Various"} - {release.title}
-        </h2>
-      </section>
-
-      <section className="flex flex-col gap-6">
-        {/* <div className="mb-12 place-self-center aspect-square size-[200px] xs:size-[240px] md:size-[290px] lg:size-[360px]"> */}
-        <div className="aspect-square w-[100%] place-self-center">
-          <DiscogsReleaseImageCarousel images={release.images} />
+    <div className="mx-auto w-full max-w-[1200px] ">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {/* Artists and title */}
+        <div className="flex flex-col items-center">
+          <h2>
+            {release.artists.length === 1 ? release.artists[0].name : "Various"} - {release.title}
+          </h2>
         </div>
-        <div>
-          {appleMusicId && (
-            <Suspense fallback={<p>Loading video...</p>}>
-              <AppleMusicPlayer appleMusicId={appleMusicId} />
-            </Suspense>
-          )}
-        </div>
-      </section>
 
-      {/* <h1>{release.title}</h1>
+        <div className="mx-auto w-full max-sm:max-w-[400px]">
+          <section className="flex flex-col gap-6">
+            {/* below element had aspect-square */}
+            <div className="w-[100%] place-self-center relative bg-release-images-card rounded-[15px] boxshadow-studydesk">
+              <DiscogsReleaseImageCarousel images={release.images} />
+            </div>
+            <div>
+              {appleMusicId && (
+                <Suspense fallback={<p>Loading video...</p>}>
+                  <AppleMusicPlayer appleMusicId={appleMusicId} />
+                </Suspense>
+              )}
+            </div>
+          </section>
+        </div>
+
+        {/* <h1>{release.title}</h1>
       <div>release id is {releaseId}</div>
 
       <DiscogsReleaseImageCarousel images={release.images} />
@@ -52,6 +55,7 @@ export default async function ReleaseDetails({
           </Suspense>
         </section>
       )} */}
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 export default function AppleMusicPlayer({ appleMusicId }: { appleMusicId: string }) {
   return (
-    <div className="">
+    <div className="rounded-[15px] boxshadow-studydesk">
       <iframe
         className="rounded-[15px]"
         width="100%"
