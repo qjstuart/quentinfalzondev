@@ -61,16 +61,16 @@ p {
   font-family: var(--font-primary);
 }
 
-/* .splide .splide__arrow--prev {
-  @apply absolute left-[-40px] top-1/2 transform -translate-y-1/2;
+.splide .splide__arrow--prev {
+  @apply absolute left-[10px] top-1/2 transform -translate-y-1/2;
 }
 
 .splide .splide__arrow--next {
-  @apply absolute right-[-40px] top-1/2 transform -translate-y-1/2;
-} */
+  @apply absolute right-[10px] top-1/2 transform -translate-y-1/2;
+}
 
 .splide .splide__pagination {
-  @apply relative mt-3;
+  @apply relative mt-4;
 }
 
 .splide .splide__pagination .splide__pagination__page.is-active {

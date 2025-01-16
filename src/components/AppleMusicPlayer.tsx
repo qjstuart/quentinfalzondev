@@ -12,7 +12,7 @@ export default function AppleMusicPlayer({ appleMusicId }: { appleMusicId: strin
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    // Render placeholder for Apple Music player to prevent Content Layout Shift (CLS)
+    // Render placeholder for Apple Music player to prevent Cumulative Layout Shift (CLS)
     return <div className="relative h-[450px] w-full"></div>
   }
 

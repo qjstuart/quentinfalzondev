@@ -5,9 +5,28 @@ import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/react-splide/css"
 import Image from "next/image"
 import { Image as DiscogsReleaseImage } from "@/types/DiscogsRelease"
-import { useCallback } from "react"
+import { useCallback, useState, useEffect } from "react"
 
 export default function DiscogsReleaseImageCarousel({ images }: { images: DiscogsReleaseImage[] }) {
+  const [loading, setLoading] = useState(true)
+  const [splideInstance, setSplideInstance] = useState<Splide>(null)
+
+  useEffect(() => {
+    if (splideInstance) {
+      splideInstance.refresh() // Force Splide to recalculate layout
+    }
+  }, [splideInstance, images])
+
+  function handleSplideMounted(splideInstance: Splide) {
+    setSplideInstance(splideInstance)
+    const splideElement = document.querySelector(".splide")
+    if (loading && splideElement) {
+      setLoading(false)
+      splideElement.classList.remove("hidden")
+      splideElement.classList.add("aspect-square")
+    }
+  }
+
   const expandCollapseImages = useCallback(() => {
     const arrow = document.querySelector(".image-card__heading-arrow")
     const carouselContainer = document.querySelector(".image-card__carousel-container")
@@ -24,7 +43,7 @@ export default function DiscogsReleaseImageCarousel({ images }: { images: Discog
   return (
     <div className="grid grid-rows-[auto_1fr]">
       <div
-        className="image-card__heading relative flex justify-between items-center w-full px-8 py-4 hover:cursor-pointer"
+        className="image-card__heading relative flex justify-between items-center w-full px-5 py-4 hover:cursor-pointer"
         onClick={expandCollapseImages}
       >
         <p className="text-lg">Images</p>
@@ -32,22 +51,25 @@ export default function DiscogsReleaseImageCarousel({ images }: { images: Discog
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 40 40"
-          className="image-card__heading-arrow size-[15px] rotate-90 object-contain fill-foreground"
+          className="image-card__heading-arrow size-[15px] rotate-270 object-contain fill-foreground"
         >
           <path d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"></path>
         </svg>
       </div>
-      <div className="image-card__carousel-container grid grid-rows-[0fr] transition-grid-rows duration-500">
+      <div className="image-card__carousel-container grid grid-rows-[1fr] transition-grid-rows duration-500">
         <div className="overflow-hidden">
           {/* TO PLACE THE FOLLOWING INSIDE A DiscogsReleaseImageCarousel COMPONENT & RENAME THIS FILE TO E.G. DiscogsReleaseImagesCard*/}
+          {loading && <div className="w-full aspect-square overflow-hidden"></div>}
           <Splide
+            onMounted={(splide: Splide) => handleSplideMounted(splide)}
             options={{
               rewind: true,
+              autoHeight: true,
             }}
             hasTrack="true"
             tag="section"
             aria-label="Release image carousel"
-            className="px-8 pb-2 overflow-hidden"
+            className="px-5 overflow-hidden hidden"
           >
             {/* below element had aspect-square */}
             {images.map((image) => (
