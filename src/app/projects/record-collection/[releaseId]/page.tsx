@@ -16,7 +16,6 @@ export default async function ReleaseDetails({
   }
 
   const appleMusicId = await fetchWithErrorHandling(() => fetchAppleMusicId(release))
-  console.log(release)
 
   return (
     <div className="mx-auto w-full max-w-[1200px]">
@@ -24,7 +23,7 @@ export default async function ReleaseDetails({
         <div className="release-details flex flex-col gap-4 pb-6">
           {/* Artists & title */}
           <div className="release-details__title">
-            <h2 className="md:text-3xl">
+            <h2 className="font-semibold md:text-3xl">
               {release.artists.length === 1 ? release.artists[0].name : "Various"} - {release.title}
             </h2>
           </div>
@@ -53,8 +52,10 @@ export default async function ReleaseDetails({
           {/* Labels */}
           <div className="release-details__labels">
             <p className="release-field">Labels</p>
-            {release.labels.map((label) => (
-              <span key={label.name}>{label.name}</span>
+            {release.labels.map((label, index) => (
+              <span key={index}>
+                {label.name} {index < release.styles.length && "/ "}
+              </span>
             ))}
           </div>
           {/* Notes */}
