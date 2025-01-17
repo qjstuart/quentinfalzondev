@@ -61,6 +61,11 @@ p {
   font-family: var(--font-primary);
 }
 
+.release-field {
+  @apply text-xl italic;
+  font-family: var(--font-secondary);
+}
+
 .splide .splide__arrow--prev {
   @apply absolute left-[10px] top-1/2 transform -translate-y-1/2;
 }

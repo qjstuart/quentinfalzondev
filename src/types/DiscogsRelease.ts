@@ -11,6 +11,7 @@ type DiscogsRelease = {
   title: string
   tracklist: Track[]
   year: number
+  notes: string
 }
 
 export type Image = {

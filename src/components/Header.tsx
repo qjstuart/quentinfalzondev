@@ -6,7 +6,7 @@ import { IoMenu } from "react-icons/io5";
 export default function Header() {
   return (
     <header>
-      <div className="flex justify-between items-center text-lg py-4">
+      <div className="flex justify-between items-center text-2xl py-4">
         <Link href="/">
           <em>Quentin Falzon</em>
         </Link>
