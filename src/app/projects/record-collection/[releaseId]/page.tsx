@@ -1,7 +1,7 @@
 import { fetchRelease, fetchAppleMusicId, fetchWithErrorHandling } from "@/app/lib/utils"
 import { Suspense } from "react"
 import AppleMusicPlayer from "@/components/AppleMusicPlayer"
-import DiscogsReleaseImageCarousel from "@/components/DiscogsReleaseImageCarousel"
+import DiscogsReleaseImagesCard from "@/components/DiscogsReleaseImagesCard"
 
 export default async function ReleaseDetails({
   params,
@@ -31,7 +31,7 @@ export default async function ReleaseDetails({
           <section className="flex flex-col gap-6">
             {/* below element had aspect-square */}
             <div className="w-[100%] place-self-center relative bg-release-images-card rounded-[15px] boxshadow-studydesk">
-              <DiscogsReleaseImageCarousel images={release.images} />
+              <DiscogsReleaseImagesCard images={release.images} />
             </div>
             <div>
               {appleMusicId && (
@@ -46,7 +46,7 @@ export default async function ReleaseDetails({
         {/* <h1>{release.title}</h1>
       <div>release id is {releaseId}</div>
 
-      <DiscogsReleaseImageCarousel images={release.images} />
+      <DiscogsReleaseImagesCard images={release.images} />
 
       {appleMusicId && (
         <section className="apple-music">
