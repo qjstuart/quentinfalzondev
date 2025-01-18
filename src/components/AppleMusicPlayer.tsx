@@ -1,11 +1,11 @@
 "use client"
 
-// import { useTheme } from "next-themes"
+import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 
 export default function AppleMusicPlayer({ appleMusicId }: { appleMusicId: string }) {
   const [mounted, setMounted] = useState(false)
-  // const { theme } = useTheme()
+  const { theme } = useTheme()
 
   // We need to wait until it is safe to show the UI.
   // Otherwise we risk hydration mismatch errors.
@@ -22,7 +22,7 @@ export default function AppleMusicPlayer({ appleMusicId }: { appleMusicId: strin
         className="rounded-[15px]"
         width="100%"
         height="450"
-        src={`https://embed.music.apple.com/us/album/${appleMusicId}?theme=auto`}
+        src={`https://embed.music.apple.com/us/album/${appleMusicId}?theme=${theme}`}
         allow="encrypted-media; fullscreen; clipboard-write;"
         sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
         title="Media player"
