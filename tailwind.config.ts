@@ -7,6 +7,7 @@ export default {
       colors: {
         background: "rgba(var(--background))",
         foreground: "rgba(var(--foreground))",
+        gray: "rgba(128, 128, 128, 1)",
 
         "copy-primary": "rgba(var(--copy-primary))",
 
