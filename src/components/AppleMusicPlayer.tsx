@@ -17,12 +17,22 @@ export default function AppleMusicPlayer({ appleMusicId }: { appleMusicId: strin
   }
 
   return (
-    <div className="rounded-[15px] boxshadow-studydesk">
+    <div className="rounded-[15px] boxshadow-studydesk relative">
+      {/* Preload 2 <iframes>, 1 light & 1 dark */}
       <iframe
-        className="rounded-[15px]"
+        className={`rounded-[15px] absolute ${theme === "light" ? "hidden" : ""}`}
         width="100%"
         height="450"
-        src={`https://embed.music.apple.com/us/album/${appleMusicId}?theme=${theme}`}
+        src={`https://embed.music.apple.com/us/album/${appleMusicId}?theme=dark`}
+        allow="encrypted-media; fullscreen; clipboard-write;"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        title="Media player"
+      ></iframe>
+      <iframe
+        className={`rounded-[15px] absolute ${theme === "dark" ? "hidden" : ""}`}
+        width="100%"
+        height="450"
+        src={`https://embed.music.apple.com/us/album/${appleMusicId}?theme=light`}
         allow="encrypted-media; fullscreen; clipboard-write;"
         sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
         title="Media player"
