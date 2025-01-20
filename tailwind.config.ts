@@ -5,15 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "rgba(var(--background))",
-        foreground: "rgba(var(--foreground))",
-        gray: "rgba(128, 128, 128, 1)",
+        "background": "rgba(var(--background))",
+        "foreground": "rgba(var(--foreground))",
+        "gray": "rgba(128, 128, 128, 1)",
 
         "copy-primary": "rgba(var(--copy-primary))",
 
         "project-card-bg": "rgba(var(--project-card-bg))",
         "project-card-bg-hover": "rgba(var(--project-card-bg-hover))",
+
         "release-images-card": "rgba(var(--release-images-card))",
+      
         "carousel-active-page": "rgba(var(--carousel-active-page))",
       },
       boxShadow: {

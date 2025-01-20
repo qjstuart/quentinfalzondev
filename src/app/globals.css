@@ -15,7 +15,7 @@
   }
 
   :root {
-    --background-color: 255, 255, 255;
+    --background: 255, 255, 255;
     --foreground: 0, 0, 0;
     --project-card-bg: 255, 255, 255;
     --project-card-bg-hover: 240, 240, 240;
@@ -24,13 +24,13 @@
 
     --copy-primary: 0, 0, 0;
 
-    background-color: rgba(var(--background-color));
+    background-color: rgba(var(--background));
     /* transition: background-color 0.15s ease-in-out; */
   }
 }
 
 .dark {
-  --background-color: 0, 0, 0;
+  --background: 0, 0, 0;
   --foreground: 255, 255, 255;
   --project-card-bg: 10, 10, 10;
   --project-card-bg-hover: 15, 15, 15;
@@ -39,7 +39,7 @@
 
   --copy-primary: 255, 255, 255;
 
-  background-color: rgba(var(--background-color));
+  background-color: rgba(var(--background));
   /* transition: background-color 0.15s ease-in-out; */
 }
 
@@ -56,6 +56,10 @@ body {
 header,
 footer {
   font-family: var(--font-secondary);
+}
+
+header {
+  box-shadow: 0 0 60px 1px rgba(var(--background));
 }
 
 p {

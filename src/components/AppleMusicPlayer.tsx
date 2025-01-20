@@ -13,7 +13,7 @@ export default function AppleMusicPlayer({ appleMusicId }: { appleMusicId: strin
 
   if (!mounted) {
     // Render placeholder for Apple Music player to prevent Cumulative Layout Shift (CLS)
-    return <div className="relative h-[450px] w-full"></div>
+    return <div className="relative h-[450px] w-full rounded-[15px]"></div>
   }
 
   return (

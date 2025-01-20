@@ -1,11 +1,11 @@
 import React from "react"
 import Link from "next/link"
 import ThemeSwitch from "./ThemeSwitch"
-import { IoMenu } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5"
 
 export default function Header() {
   return (
-    <header>
+    <header className="sticky top-0 z-10 bg-background">
       <div className="flex justify-between items-center text-2xl py-4">
         <Link href="/">
           <em>Quentin Falzon</em>
