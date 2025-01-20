@@ -1,11 +1,13 @@
 import DiscogsCollectionItem from "@/types/DiscogsCollectionItem"
 import DiscogsCollectionItemsByFolderResponse from "@/types/DiscogsCollectionItemsByFolderResponse"
 import DiscogsRelease from "@/types/DiscogsRelease"
+import DiscogsArtistResponse from "@/types/DiscogsArtistResponse"
 import AppleMusicRelease from "@/types/AppleMusicRelease"
 
 export const RELEASES_PER_PAGE = 25
 const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/${process.env.DISCOGS_FOLDER_ID}/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
 const RELEASE_URL = `https://api.discogs.com/releases/`
+const ARTIST_URL = `https://api.discogs.com/artists/`
 
 async function fetchAllReleases(
   url: string,
@@ -200,6 +202,23 @@ export async function fetchAppleMusicId(discogsRelease: DiscogsRelease): Promise
   }
 
   return matchingAppleMusicRelease.collectionId.toString()
+}
+
+export async function fetchArtistInfo(artistId: string) {
+  const response = await fetch(`${ARTIST_URL}${artistId}`, {
+    headers: {
+      "User-Agent": `${process.env.DISCOGS_USERAGENT}`,
+    },
+    next: { revalidate: 3600 },
+    // cache: "force-cache",
+  })
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch artist information: ${response.status} ${response.statusText}`)
+  }
+
+  const artistInfo: DiscogsArtistResponse = await response.json()
+  return artistInfo
 }
 
 export async function fetchWithErrorHandling<T>(fetchFn: () => Promise<T>): Promise<T | null> {
