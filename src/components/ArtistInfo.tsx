@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import DiscogsArtistResponse from "@/types/DiscogsArtistResponse"
+import { removeDiscogsMarkdown } from "@/app/lib/utils"
 
 export default function ArtistInfo({ artistInfo }: { artistInfo: DiscogsArtistResponse }) {
   const [showFullProfile, setShowFullProfile] = useState(false)
@@ -10,7 +11,12 @@ export default function ArtistInfo({ artistInfo }: { artistInfo: DiscogsArtistRe
     setShowFullProfile(!showFullProfile)
   }
 
-  const profileText = showFullProfile ? artistInfo?.profile : artistInfo?.profile?.slice(0, 500)
+  if (!artistInfo || !artistInfo.profile) {
+    return
+  }
+
+  const cleanlProfileText = removeDiscogsMarkdown(artistInfo.profile)
+  const profileText = showFullProfile ? cleanlProfileText : cleanlProfileText.slice(0, 500)
 
   return (
     <div className="release-details__artist-info">

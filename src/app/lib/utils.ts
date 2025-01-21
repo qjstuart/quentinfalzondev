@@ -120,6 +120,10 @@ function deAccent(searchWord: string) {
   return searchWord.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
 }
 
+export function removeDiscogsMarkdown(text: string) {
+  return text.replace(/"\[m=\d+\]"/g, "").replace(/\[a=(.+?)\]/g, "$1")
+}
+
 export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {
   // A release should only be fetched if it is part of the Discogs collection
   const allReleases = await fetchAllReleases(BASE_URL)
