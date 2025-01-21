@@ -121,7 +121,10 @@ function deAccent(searchWord: string) {
 }
 
 export function removeDiscogsMarkdown(text: string) {
-  return text.replace(/"\[m=\d+\]"/g, "").replace(/\[a=(.+?)\]/g, "$1")
+  return text
+    .replace(/"\[m=\d+\]"/g, "")
+    .replace(/\[a=(.+?)\]/g, "$1")
+    .replace(/\[l=([^\]]+)]/g, "$1")
 }
 
 export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {
