@@ -17,12 +17,14 @@ export default async function RecordCollection(props: {
   const currentPage = Number(searchParams?.page) || 1
   const totalPages = await fetchWithErrorHandling(() => fetchTotalPages(query))
 
-  if (!totalPages) {
+  // If there is an error fetching the total number of pages
+  if (totalPages === null) {
+    console.log("totalPages", totalPages)
     return <div>Error fetching number of total pages</div>
   }
 
   // If user enters a non-existent page number in URL
-  if (currentPage > totalPages) {
+  if (currentPage > totalPages || currentPage < 0) {
     return (
       <div>
         Page not found!

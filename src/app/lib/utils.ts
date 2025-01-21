@@ -81,7 +81,11 @@ export async function fetchTotalPages(query: string): Promise<number> {
   // Get releases which match the search word and calculate the number of pages required to display them.
   const allReleases = await fetchAllReleases(BASE_URL)
   const filteredReleases = filterReleases(allReleases, query)
-  return Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
+  const totalPages = Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
+  // When there are no matches for given search query, it makes sense to set the number of pages to 1.
+  if (totalPages === 0) {
+    return 1
+  } else return totalPages
 }
 
 export const generatePagination = (currentPage: number, totalPages: number) => {
