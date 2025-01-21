@@ -30,12 +30,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased px-6 min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
+        className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} ${ptSans.variable} antialiased min-h-[100vh] grid grid-rows-[auto_1fr_auto]`}
       >
         <Providers>
-          <Header />
-          <main className="flex flex-col py-12">{children}</main>
-          <Footer />
+          <Header classes={"px-6"} />
+          <main className="flex flex-col py-12 px-6">{children}</main>
+          <Footer classes={"px-6"}/>
         </Providers>
       </body>
     </html>
