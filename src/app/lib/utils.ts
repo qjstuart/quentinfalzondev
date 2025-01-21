@@ -122,10 +122,13 @@ function deAccent(searchWord: string) {
 
 export function removeDiscogsMarkdown(text: string) {
   return text
-    .replace(/"\[m=\d+\]"/g, "")      // link to master release
-    .replace(/\[a\d+\]/g, "")         // link to artist page
-    .replace(/\[a=(.+?)\]/g, "$1")    // alternate format of linking to artist page
-    .replace(/\[l=([^\]]+)]/g, "$1")  // link to label page
+  // TODO implement parsing and data-fetching as per https://support.discogs.com/hc/en-us/articles/360007331734-How-Can-I-Format-Text
+  // .replace(/"\[m=\d+\]"/g, "")      // link to master release
+  // .replace(/\[m=\d+\]/g, "")        // alternate format link to master release
+  // .replace(/\[a\d+\]/g, "")         // link to artist page
+  // .replace(/\[a=(.+?)\]/g, "$1")    // alternate format link to artist page
+  // .replace(/\[l=([^\]]+)]/g, "$1")  // link to label page
+  // .replace(/\[l\d+\]/g, "")         // alternate format link to label page
 }
 
 export async function fetchRelease(releaseId: string): Promise<DiscogsRelease> {

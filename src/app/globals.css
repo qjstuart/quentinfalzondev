@@ -67,7 +67,7 @@ p {
 }
 
 .release-field {
-  @apply text-xl italic;
+  @apply text-xl italic pb-0.5;
   font-family: var(--font-secondary);
 }
 
