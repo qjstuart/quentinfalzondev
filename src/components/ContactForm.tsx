@@ -20,7 +20,12 @@ export default function ContactForm() {
   console.log(errors)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+    <form
+      name="contact"
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-5"
+      data-netlify="true"
+    >
       <input
         className="border border-gray rounded-md py-3 pl-3"
         type="text"
