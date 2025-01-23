@@ -19,7 +19,6 @@ export default async function RecordCollection(props: {
 
   // If there is an error fetching the total number of pages
   if (totalPages === null) {
-    console.log("totalPages", totalPages)
     return <div>Error fetching number of total pages</div>
   }
 

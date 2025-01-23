@@ -82,7 +82,7 @@ export async function fetchTotalPages(query: string): Promise<number> {
   const allReleases = await fetchAllReleases(BASE_URL)
   const filteredReleases = filterReleases(allReleases, query)
   const totalPages = Math.ceil(filteredReleases.length / RELEASES_PER_PAGE)
-  // When there are no matches for given search query, it makes sense to set the number of pages to 1.
+  // When there are no matches for given search query, it makes sense to set the number of pages to 1 instead of 0.
   if (totalPages === 0) {
     return 1
   } else return totalPages

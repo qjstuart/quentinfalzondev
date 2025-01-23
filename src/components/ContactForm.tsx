@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 
 type ContactFormInput = {
   name: string
@@ -16,7 +16,24 @@ export default function ContactForm() {
     formState: { errors },
   } = useForm<ContactFormInput>()
 
-  const onSubmit: SubmitHandler<ContactFormInput> = (data) => console.log(data)
+  async function onSubmit(formData: ContactFormInput) {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    }
+    console.log("formData: ", requestOptions.body)
+
+    try {
+      const response = await fetch("/", requestOptions)
+      console.log(response.headers.get("Content-Type"))
+      const data = await response.json()
+      console.log("data", data)
+      console.log("data returned from POST request: ", data)
+    } catch (error) {
+      console.log("error:", error)
+    }
+  }
   console.log(errors)
 
   return (
@@ -25,7 +42,11 @@ export default function ContactForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-5"
       data-netlify="true"
+      method="POST"
     >
+      {/* Hidden input link required by Netlify. */}
+      <input type="hidden" name="form-name" value="contact" />
+
       <input
         className="border border-gray rounded-md py-3 pl-3"
         type="text"

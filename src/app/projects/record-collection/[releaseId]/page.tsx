@@ -4,10 +4,10 @@ import {
   fetchWithErrorHandling,
   fetchArtistInfo,
 } from "@/app/lib/utils"
-import { Suspense } from "react"
 import AppleMusicPlayer from "@/components/AppleMusicPlayer"
 import DiscogsReleaseImagesCard from "@/components/DiscogsReleaseImagesCard"
 import ArtistInfo from "@/components/ArtistInfo"
+import { Suspense } from "react"
 
 export default async function ReleaseDetails({
   params,
@@ -16,7 +16,6 @@ export default async function ReleaseDetails({
 }) {
   const { releaseId } = await params
   const release = await fetchWithErrorHandling(() => fetchRelease(releaseId))
-  console.log("release: ", release)
 
   if (!release) {
     return <div>Error fetching release</div>
@@ -24,8 +23,6 @@ export default async function ReleaseDetails({
 
   const artistId = release.artists[0].id
   const artistInfo = await fetchWithErrorHandling(() => fetchArtistInfo(artistId))
-  console.log("artistInfo", artistInfo)
-
   const appleMusicId = await fetchWithErrorHandling(() => fetchAppleMusicId(release))
 
   return (
@@ -89,7 +86,7 @@ export default async function ReleaseDetails({
               <div>{artistInfo?.profile}</div>
             </div>
           )} */}
-          {artistInfo?.profile && <ArtistInfo artistInfo={artistInfo}/>}
+          {artistInfo?.profile && <ArtistInfo artistInfo={artistInfo} />}
         </div>
 
         <div className="mx-auto w-full max-sm:max-w-[400px]">
