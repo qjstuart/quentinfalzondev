@@ -25,7 +25,7 @@ export default function ContactForm() {
     console.log("formData: ", requestOptions.body)
 
     try {
-      const response = await fetch("/", requestOptions)
+      const response = await fetch("/__forms.html", requestOptions)
       console.log(response.headers.get("Content-Type"))
       const data = await response.json()
       console.log("data", data)
@@ -69,7 +69,7 @@ export default function ContactForm() {
           maxLength: { value: 5000, message: "Maximum message length is 5000 characters" },
         })}
       />
-      <input type="submit" />
+      <button type="submit">Submit</button>
     </form>
   )
 }
