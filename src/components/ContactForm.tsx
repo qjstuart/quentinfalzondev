@@ -22,8 +22,8 @@ export default function ContactForm() {
       body: new URLSearchParams(formData).toString(),
     }
 
-    const response = await fetch("/__forms.html", requestOptions)
-    console.log(errors)
+    const response = await fetch("/", requestOptions)
+    console.log("response: ", response)
 
     if (!response.ok) {
       console.log("response not OK")
@@ -36,7 +36,7 @@ export default function ContactForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-5"
       data-netlify="true"
-      method="POST"
+      action="/src/components/Success.tsx"
     >
       {/* Hidden input link required by Netlify. */}
       <input type="hidden" name="form-name" value="contact" />
