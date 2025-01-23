@@ -37,7 +37,7 @@ export default function ContactForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-5"
       data-netlify="true"
-      action="/src/components/Success.tsx"
+      action="/success"
     >
       {/* Hidden input link required by Netlify. */}
       <input type="hidden" name="form-name" value="contact" />

@@ -8,11 +8,11 @@ export default function page() {
         Let&apos;s start working together! My inbox is always open.
       </h2>
       {/* A little help for the Netlify post-processing bots */}
-      <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      {/* <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
         <input type="text" name="name" />
         <input type="text" name="email" />
         <textarea name="message"></textarea>
-      </form>
+      </form> */}
       <ContactForm />
     </section>
   )
