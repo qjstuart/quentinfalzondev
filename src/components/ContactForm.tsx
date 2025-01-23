@@ -28,6 +28,7 @@ export default function ContactForm() {
     if (!response.ok) {
       console.log("response not OK")
     }
+    console.log("errors? ", errors)
   }
 
   return (
