@@ -22,7 +22,7 @@ export default function ContactForm() {
       body: new URLSearchParams(formData).toString(),
     }
 
-    const response = await fetch("/__forms.html", requestOptions)
+    const response = await fetch("/public/__forms.html", requestOptions)
     console.log("response: ", response)
 
     if (response.ok) {
