@@ -18,9 +18,9 @@ export default function ContactForm() {
   async function onSubmit(formData: ContactFormData) {
     console.log(formData)
     const requestOptions = {
-      method: "GET",
-      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      // body: new URLSearchParams(formData).toString(),
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
     }
 
     const response = await fetch("/", requestOptions)
