@@ -16,10 +16,11 @@ export default function ContactForm() {
   } = useForm<ContactFormData>()
 
   async function onSubmit(formData: ContactFormData) {
+    console.log(formData)
     const requestOptions = {
       method: "GET",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      // headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // body: new URLSearchParams(formData).toString(),
     }
 
     const response = await fetch("/arrow.svg", requestOptions)
