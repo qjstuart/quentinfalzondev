@@ -35,7 +35,7 @@ export default function RootLayout({
         <Providers>
           <Header classes={"px-6"} />
           <main className="flex flex-col py-12 px-6">{children}</main>
-          <Footer classes={"px-6"}/>
+          <Footer classes={"px-6"} />
         </Providers>
       </body>
     </html>
