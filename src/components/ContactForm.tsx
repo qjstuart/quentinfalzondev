@@ -17,7 +17,7 @@ export default function ContactForm() {
 
   async function onSubmit(formData: ContactFormData) {
     const requestOptions = {
-      method: "POST",
+      method: "GET",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     }
