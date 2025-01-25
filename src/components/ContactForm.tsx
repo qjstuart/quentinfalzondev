@@ -6,7 +6,6 @@ type ContactFormData = {
   name: string
   email: string
   message: string
-  "form-name": "contact"
 }
 
 export default function ContactForm() {
@@ -17,11 +16,15 @@ export default function ContactForm() {
   } = useForm<ContactFormData>()
 
   async function onSubmit(formData: ContactFormData) {
-    console.log(formData)
+    const body = {
+      ...formData,
+      "form-name": "contact",
+    }
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
+      body: new URLSearchParams(body).toString(),
     }
 
     const response = await fetch("/__forms.html", requestOptions)
