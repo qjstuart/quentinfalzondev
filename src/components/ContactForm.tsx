@@ -6,6 +6,7 @@ type ContactFormData = {
   name: string
   email: string
   message: string
+  "form-name": "contact"
 }
 
 export default function ContactForm() {
