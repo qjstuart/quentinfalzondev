@@ -28,14 +28,9 @@ export default function ContactForm() {
     }
 
     const response = await fetch("/__forms.html", requestOptions)
-    console.log("response: ", response)
 
-    if (response.ok) {
-      console.log("response OK: ", response)
-    } else if (!response.ok) {
-      console.log("response not OK: ", response)
+    if (!response.ok) {
     }
-    console.log("form input errors? ", errors)
   }
 
   return (
@@ -43,27 +38,42 @@ export default function ContactForm() {
       {/* Hidden input link required by Netlify. */}
       <input type="hidden" name="form-name" value="contact" />
 
-      <input
-        className="border border-gray rounded-md py-3 pl-3"
-        type="text"
-        placeholder="Name"
-        {...register("name", { required: "Required field", maxLength: 80 })}
-      />
-      <input
-        className="border border-gray rounded-md py-3 pl-3"
-        type="text"
-        placeholder="Email"
-        {...register("email", { required: "Required field", pattern: /^\S+@\S+$/i })}
-      />
-      <textarea
-        className="border border-gray rounded-md min-h-24 py-3 pl-3"
-        placeholder="Message"
-        {...register("message", {
-          required: "Required field",
-          minLength: { value: 100, message: "Minimum message length is 100 characters" },
-          maxLength: { value: 5000, message: "Maximum message length is 5000 characters" },
-        })}
-      />
+      <div className="input-box relative">
+        <input
+          className="border border-gray rounded-md py-3 pl-3 w-full outline-none"
+          type="text"
+          {...register("name", { required: "Required field", maxLength: 80 })}
+        />
+        <label className="absolute left-0 px-4 py-3 pointer-events-none">Name</label>
+        <p>{errors.name?.message}</p>
+      </div>
+
+      <div className="input-box relative">
+        <input
+          className="border border-gray rounded-md py-3 pl-3 w-full outline-none"
+          type="text"
+          {...register("email", {
+            required: "Required field",
+            pattern: { value: /^\S+@\S+$/i, message: "Invalid email format" },
+          })}
+        />
+        <label className="absolute left-0 px-4 py-3 pointer-events-none">Email</label>
+        <p>{errors.email?.message}</p>
+      </div>
+
+      <div className="input-box relative">
+        <textarea
+          className="border border-gray rounded-md min-h-24 py-3 pl-3 w-full outline-none"
+          {...register("message", {
+            required: "Required field",
+            minLength: { value: 100, message: "Minimum message length is 100 characters" },
+            maxLength: { value: 5000, message: "Maximum message length is 5000 characters" },
+          })}
+        />
+        <label className="absolute left-0 px-4 py-3 pointer-events-none">Message</label>
+        <p>{errors.message?.message}</p>
+      </div>
+
       <button type="submit">Submit</button>
     </form>
   )

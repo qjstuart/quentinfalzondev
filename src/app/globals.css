@@ -91,3 +91,23 @@ p {
 .boxshadow-studydesk {
   @apply shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)];
 }
+
+/* Contact form styles */
+.input-box input,
+.input-box textarea {
+  background-color: rgba(var(--background));
+}
+
+.input-box label {
+  transition: 0.15s;
+  transition-timing-function: ease-out;
+  @apply text-gray
+}
+
+.input-box input:focus ~ label,
+.input-box textarea:focus ~ label {
+  transform: translateX(8px) translateY(-10px);
+  font-size: 0.75rem;
+  padding: 0 5px;
+  background: rgba(var(--background));
+}
