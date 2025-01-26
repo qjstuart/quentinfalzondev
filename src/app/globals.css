@@ -100,12 +100,14 @@ p {
 
 .input-box label {
   transition: 0.15s;
-  transition-timing-function: ease-out;
-  @apply text-gray
+  transition-timing-function: ease-out; 
+  @apply text-gray;
 }
 
 .input-box input:focus ~ label,
-.input-box textarea:focus ~ label {
+.input-box input:valid ~ label,
+.input-box textarea:focus ~ label,
+.input-box textarea:valid ~ label {
   transform: translateX(8px) translateY(-10px);
   font-size: 0.75rem;
   padding: 0 5px;
