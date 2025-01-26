@@ -40,6 +40,7 @@ export default function ContactForm() {
 
       <div className="input-box relative">
         <input
+          placeholder=""
           className="border border-gray rounded-md py-3 pl-3 w-full outline-none"
           type="text"
           {...register("name", { required: "Required field", maxLength: 80 })}
@@ -50,6 +51,7 @@ export default function ContactForm() {
 
       <div className="input-box relative">
         <input
+          placeholder=""
           className="border border-gray rounded-md py-3 pl-3 w-full outline-none"
           type="text"
           {...register("email", {
@@ -63,6 +65,7 @@ export default function ContactForm() {
 
       <div className="input-box relative">
         <textarea
+          placeholder=""
           className="border border-gray rounded-md min-h-24 py-3 pl-3 w-full outline-none"
           {...register("message", {
             required: "Required field",
