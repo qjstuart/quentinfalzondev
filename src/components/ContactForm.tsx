@@ -12,9 +12,9 @@ export default function ContactForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<ContactFormData>({
     shouldUseNativeValidation: true,
+    reValidateMode: "onSubmit",
   })
 
   async function onSubmit(formData: ContactFormData) {
@@ -71,13 +71,17 @@ export default function ContactForm() {
             required: "Required field",
             minLength: { value: 100, message: "Minimum message length is 100 characters" },
             maxLength: { value: 5000, message: "Maximum message length is 5000 characters" },
+            pattern: {
+              value: /^(?!\s*$).+/,
+              message: "Message cannot contain only whitespace",
+            },
           })}
         />
         <label className="absolute left-0 px-4 py-3 pointer-events-none">Message</label>
       </div>
 
-      <button className="mx-auto mt-3 px-5 py-2 text-lg rounded-md bg-green-700" type="submit">
-        <p>Submit</p>
+      <button className="mx-auto mt-3 px-6 py-2 text-lg rounded-2xl bg-white" type="submit">
+        <p className="text-black">Submit</p>
       </button>
     </form>
   )
