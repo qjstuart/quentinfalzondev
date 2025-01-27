@@ -13,7 +13,9 @@ export default function ContactForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ContactFormData>()
+  } = useForm<ContactFormData>({
+    shouldUseNativeValidation: true,
+  })
 
   async function onSubmit(formData: ContactFormData) {
     const body = {
@@ -46,7 +48,6 @@ export default function ContactForm() {
           {...register("name", { required: "Required field", maxLength: 80 })}
         />
         <label className="absolute left-0 px-4 py-3 pointer-events-none">Name</label>
-        <p>{errors.name?.message}</p>
       </div>
 
       <div className="input-box relative">
@@ -60,7 +61,6 @@ export default function ContactForm() {
           })}
         />
         <label className="absolute left-0 px-4 py-3 pointer-events-none">Email</label>
-        <p>{errors.email?.message}</p>
       </div>
 
       <div className="input-box relative">
@@ -74,10 +74,11 @@ export default function ContactForm() {
           })}
         />
         <label className="absolute left-0 px-4 py-3 pointer-events-none">Message</label>
-        <p>{errors.message?.message}</p>
       </div>
 
-      <button type="submit">Submit</button>
+      <button className="mx-auto mt-3 px-5 py-2 text-lg rounded-md bg-green-700" type="submit">
+        <p>Submit</p>
+      </button>
     </form>
   )
 }
