@@ -25,7 +25,6 @@
     --copy-primary: 0, 0, 0;
 
     background-color: rgba(var(--background));
-    /* transition: background-color 0.15s ease-in-out; */
   }
 }
 
@@ -40,7 +39,6 @@
   --copy-primary: 255, 255, 255;
 
   background-color: rgba(var(--background));
-  /* transition: background-color 0.15s ease-in-out; */
 }
 
 body {
@@ -48,9 +46,6 @@ body {
 
   --font-primary: var(--font-pt-sans);
   --font-secondary: var(--font-oswald);
-
-  /* background-color: rgba(var(--background-color));
-  transition: background-color 0.15s ease-in-out; */
 }
 
 header,
@@ -71,6 +66,14 @@ p {
   font-family: var(--font-secondary);
 }
 
+/* Taken from https://ui.aceternity.com/tools/box-shadows */
+.boxshadow-studydesk {
+  @apply shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)];
+}
+
+/* ==================================================== */
+/*                 IMAGE CAROUSEL STYLES                */
+/* ==================================================== */
 .splide .splide__arrow--prev {
   @apply absolute left-[10px] top-1/2 transform -translate-y-1/2;
 }
@@ -87,23 +90,24 @@ p {
   background: rgba(var(--carousel-active-page));
 }
 
-/* Taken from https://ui.aceternity.com/tools/box-shadows */
-.boxshadow-studydesk {
-  @apply shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)];
-}
-
-/* Contact form styles */
+/* ==================================================== */
+/*                  CONTACT FORM STYLES                 */
+/* ==================================================== */
 .input-box input,
 .input-box textarea {
   background-color: rgba(var(--background));
 }
 
 .input-box label {
-  transition: 0.15s;
+  transition: transform 0.15s, font-size 0.15s, background-color 0s;
   transition-timing-function: ease-out;
   @apply text-gray;
 }
 
+/* Move the <label> up to the top of each form input 
+when the input is focused, and also when the placeholder 
+(set to empty string "") is not shown. This prevents the label 
+from moving back after the user has typed something into the input */
 .input-box input:focus ~ label,
 .input-box input:not(:placeholder-shown) ~ label,
 .input-box textarea:focus ~ label,
