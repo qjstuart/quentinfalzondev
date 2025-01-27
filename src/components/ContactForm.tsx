@@ -9,12 +9,8 @@ type ContactFormData = {
 }
 
 export default function ContactForm() {
-  const {
-    register,
-    handleSubmit,
-  } = useForm<ContactFormData>({
+  const { register, handleSubmit } = useForm<ContactFormData>({
     shouldUseNativeValidation: true,
-    reValidateMode: "onSubmit",
   })
 
   async function onSubmit(formData: ContactFormData) {
@@ -69,12 +65,7 @@ export default function ContactForm() {
           className="border border-gray rounded-md min-h-24 py-3 pl-3 w-full outline-none"
           {...register("message", {
             required: "Required field",
-            minLength: { value: 100, message: "Minimum message length is 100 characters" },
             maxLength: { value: 5000, message: "Maximum message length is 5000 characters" },
-            pattern: {
-              value: /^(?!\s*$).+/,
-              message: "Message cannot contain only whitespace",
-            },
           })}
         />
         <label className="absolute left-0 px-4 py-3 pointer-events-none">Message</label>
