@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form"
 import { useState } from "react"
+import Link from "next/link"
 
 type ContactFormData = {
   name: string
@@ -45,7 +46,11 @@ export default function ContactForm() {
               Let&apos;s start working together! My inbox is always open.
             </h2>
           </section>
-          <form name="contact" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+          <form
+            name="contact"
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-5 max-w-[800px] w-full mx-auto"
+          >
             {/* Hidden input link required by Netlify. */}
             <input type="hidden" name="form-name" value="contact" />
 
@@ -84,8 +89,11 @@ export default function ContactForm() {
               <label className="absolute left-0 px-4 py-3 pointer-events-none">Message</label>
             </div>
 
-            <button className="mx-auto mt-3 px-6 py-2 text-lg rounded-2xl bg-white" type="submit">
-              <p className="text-black">Submit</p>
+            <button
+              className="mx-auto mt-3 px-6 py-2 text-lg rounded-2xl bg-green-500 hover:bg-green-900 transition-colors"
+              type="submit"
+            >
+              <p className="text-white">Submit</p>
             </button>
           </form>
         </>
@@ -97,6 +105,16 @@ export default function ContactForm() {
             <h2 className="text-center pb-6">
               Your message has been sent, I will get back to you soon.
             </h2>
+            <div className="flex justify-center">
+              <Link href="/">
+                <button
+                  className="mt-3 px-6 py-2 text-lg rounded-2xl bg-foreground hover:bg-foreground/60 transition-colors"
+                  type="button"
+                >
+                  <p className="text-background">Back to homepage</p>
+                </button>
+              </Link>
+            </div>
           </section>
         </>
       )}
