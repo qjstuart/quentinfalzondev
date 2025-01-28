@@ -16,10 +16,10 @@ export default function ProjectCard({
   return (
     <Link
       href={href}
-      className="flex justify-center items-center w-[220px] h-[220px] md:w-[280px] md:h-[280px] rounded-lg shadow-projectcard bg-project-card-bg hover:bg-project-card-bg-hover hover:cursor-pointer transition-colors"
+      className="flex justify-center items-center size-[220px] md:size-[280px] rounded-lg shadow-projectcard bg-project-card-bg hover:bg-project-card-bg-hover hover:cursor-pointer transition-colors"
     >
       <div className="grid grid-rows-[1fr_auto] justify-items-center gap-5">
-        <div className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] relative">
+        <div className="size-[100px]  md:size-[150px] relative">
           <Image
             fill
             sizes="(max-width: 640px) 100px, 150px"

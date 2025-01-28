@@ -117,3 +117,10 @@ from moving back after the user has typed something into the input */
   padding: 0 5px;
   background: rgba(var(--background));
 }
+
+/* ==================================================== */
+/*                  "ABOUT PROJECT" PAGE STYLES         */
+/* ==================================================== */
+.btn-project-about {
+  font-family: var(--font-secondary);
+}

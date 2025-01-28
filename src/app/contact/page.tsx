@@ -90,7 +90,7 @@ export default function ContactForm() {
             </div>
 
             <button
-              className="mx-auto mt-3 px-6 py-2 text-lg rounded-2xl bg-green-500 hover:bg-green-900 transition-colors"
+              className="mx-auto mt-3 px-6 py-2 text-lg rounded-2xl bg-green-500 hover:bg-green-900 transition duration-300"
               type="submit"
             >
               <p className="text-white">Submit</p>
