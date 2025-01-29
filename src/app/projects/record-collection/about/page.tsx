@@ -1,16 +1,37 @@
 import ProjectAboutPage from "@/components/ProjectAboutPage"
 import { Project } from "@/types/Project"
+import Link from "next/link"
 
 const projectInfo = {
   id: "1",
-  title: "Discogs Record Collection",
+  title: "Music Catalog Browser",
   description: "A record collection app using the Discogs API",
   imageSrc: "/record_player_silver.png",
-  about:
-    "I wanted to create a tool to organize and showcase my vinyl collection. With this app, I can pull data directly from the Discogs API and display details about each record",
-  link:
-    "/projects/record-collection/"
-  }
+  link: "/projects/record-collection/",
+  about: (
+    <>
+      <p className="mb-3">
+        Being an out-and-out music aficionado, I have been using{" "}
+        <span data-tooltip="An online music database and marketplace" className="tooltip">
+          Discogs
+        </span>{" "}
+        for several years now. It serves as an invaluable resource - both for discovering new music
+        and for further exploring my favorite artists&apos; discographies.
+      </p>
+      <p>
+        As soon as I found out that they have a{" "}
+        <Link
+          href="https://www.discogs.com/developers"
+          className="underline hover:text-foreground/80 transition-color duration-300"
+        >
+          publicly-accessible API
+        </Link>
+        , I knew it would be fun to create a small website that fetches and showcases the releases
+        in my vinyl collection.
+      </p>
+    </>
+  ),
+}
 
 const project: Project = {
   id: projectInfo.id,
