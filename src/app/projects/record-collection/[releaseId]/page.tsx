@@ -8,6 +8,7 @@ import AppleMusicPlayer from "@/components/AppleMusicPlayer"
 import DiscogsReleaseImagesCard from "@/components/DiscogsReleaseImagesCard"
 import ArtistInfo from "@/components/ArtistInfo"
 import { Suspense } from "react"
+import NotFound from "@/app/not-found"
 
 export default async function ReleaseDetails({
   params,
@@ -18,7 +19,7 @@ export default async function ReleaseDetails({
   const release = await fetchWithErrorHandling(() => fetchRelease(releaseId))
 
   if (!release) {
-    return <div>Error fetching release</div>
+    return <NotFound />
   }
 
   const artistId = release.artists[0].id
