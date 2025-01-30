@@ -3,7 +3,7 @@ export default function Footer({ classes }: { classes: string }) {
 
   return (
     <>
-      <footer className={`${classes} flex justify-center pb-8`}>
+      <footer className={`${classes} flex justify-center py-8`}>
         <div className="text-gray">
           <em>&#169; </em>
           <em>{currentYear} Quentin Falzon</em>
