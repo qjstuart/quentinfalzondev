@@ -1,6 +1,9 @@
 import ProjectAboutPage from "@/components/ProjectAboutPage"
 import { Project } from "@/types/Project"
 import Link from "next/link"
+import { IoIosInformationCircleOutline } from "react-icons/io"
+
+import MyTooltip from "@/components/MyTooltip"
 
 const projectInfo = {
   id: "1",
@@ -10,15 +13,19 @@ const projectInfo = {
   link: "/projects/record-collection/",
   about: (
     <>
-      <p className="mb-3">
+      <div className="mb-3">
         Being an out-and-out music aficionado, I have been using{" "}
-        <span data-tooltip="An online music database and marketplace" className="tooltip">
+        <span className="inline-flex">
           Discogs
+          <IoIosInformationCircleOutline  className="anchor-discogs inline outline-none" />
         </span>{" "}
+        <MyTooltip anchorSelect=".anchor-discogs" place="top">
+          An online music database & marketplace
+        </MyTooltip>
         for several years now. It serves as an invaluable resource - both for discovering new music
         and for further exploring my favorite artists&apos; discographies.
-      </p>
-      <p>
+      </div>
+      <div>
         As soon as I found out that they have a{" "}
         <Link
           href="https://www.discogs.com/developers"
@@ -28,7 +35,7 @@ const projectInfo = {
         </Link>
         , I knew it would be fun to create a small website that fetches and showcases the releases
         in my vinyl collection.
-      </p>
+      </div>
     </>
   ),
 }

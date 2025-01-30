@@ -17,7 +17,7 @@ export default function ProjectAboutPage({ project }: { project: Project }) {
       </div> */}
         <h1>{project.title}</h1>
 
-        <button className="border-2 border-foreground rounded-md px-5 py-3 hover:bg-foreground hover:text-background transition-color duration-300">
+        <button className="border-2 border-foreground rounded-md px-5 py-3 text-background bg-foreground hover:bg-background hover:text-foreground transition-color duration-300">
           <Link href={project.link} className="flex items-center gap-4">
             <FaRegEye className="size-[25px]" />
             <span className="btn-project-about text-2xl">CHECK OUT THIS PROJECT</span>

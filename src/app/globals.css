@@ -61,24 +61,6 @@ p {
   font-family: var(--font-primary);
 }
 
-.tooltip {
-  @apply relative cursor-pointer underline decoration-dotted hover:decoration-foreground/80 hover:text-foreground/80;
-
-  &::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    background-color: rgba(var(--background));
-    font-family: var(--font-primary);
-    padding: 0.5rem;
-    box-shadow: 0px 0px 10px gray;
-    transform: translateY(-100%) translateX(-70%);
-    /* text-wrap: nowrap; */
-    text-align: center;
-
-    @apply rounded-md;
-  }
-}
-
 .release-field {
   @apply text-xl italic pb-0.5;
   font-family: var(--font-secondary);
