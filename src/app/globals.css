@@ -61,9 +61,21 @@ p {
   font-family: var(--font-primary);
 }
 
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
 .release-field {
   @apply text-xl italic pb-0.5;
   font-family: var(--font-secondary);
+}
+
+.tooltip {
+  --rt-opacity: 1;
 }
 
 /* Taken from https://ui.aceternity.com/tools/box-shadows */

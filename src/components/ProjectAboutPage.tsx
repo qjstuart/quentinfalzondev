@@ -6,7 +6,7 @@ import { FaRegEye } from "react-icons/fa"
 export default function ProjectAboutPage({ project }: { project: Project }) {
   return (
     <>
-      <section className="flex flex-col gap-14 items-center max-w-[1024px] mx-auto">
+      <section className="flex flex-col items-center max-w-[1024px] mx-auto">
         {/* <div className="w-[100px] h-[100px] md:w-[150px] md:h-[150px] relative">
         <Image
           fill
@@ -15,21 +15,21 @@ export default function ProjectAboutPage({ project }: { project: Project }) {
           alt={project.description}
         />
       </div> */}
-        <h1>{project.title}</h1>
+        <h1 className="mb-14">{project.title}</h1>
 
+        {/* Project description & summary */}
+        <div className="text-xl max-w-[800px]">{project.about}</div>
+
+        <div className="relative size-[400px] mx-auto">
+          <Image src="/mockup_dummy.avif" alt="" fill className="object-contain"></Image>
+        </div>
         <button className="border-2 border-foreground rounded-md px-5 py-3 text-background bg-foreground hover:bg-background hover:text-foreground transition-color duration-300">
           <Link href={project.link} className="flex items-center gap-4">
             <FaRegEye className="size-[25px]" />
             <span className="btn-project-about text-2xl">CHECK OUT THIS PROJECT</span>
           </Link>
         </button>
-
-        {/* Project description & summary */}
-        <div className="text-xl max-w-[800px]">{project.about}</div>
       </section>
-      <div className="relative size-[400px] mx-auto">
-        <Image src="/mockup_dummy.avif" alt="" fill className="object-contain"></Image>
-      </div>
     </>
   )
 }

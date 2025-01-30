@@ -13,22 +13,25 @@ const projectInfo = {
   link: "/projects/record-collection/",
   about: (
     <>
-      <div className="mb-3">
+      <div className="mb-6 font-primary">
         Being an out-and-out music aficionado, I have been using{" "}
         <span className="inline-flex">
           Discogs
-          <IoIosInformationCircleOutline  className="anchor-discogs inline outline-none" />
+          <IoIosInformationCircleOutline className="anchor-discogs inline outline-none size-[20px]" />
         </span>{" "}
-        <MyTooltip anchorSelect=".anchor-discogs" place="top">
-          An online music database & marketplace
+        <MyTooltip anchorSelect=".anchor-discogs" place="top-start">
+          An online music database & marketplace. <br /> Similar to what IMDB is for movies.
         </MyTooltip>
         for several years now. It serves as an invaluable resource - both for discovering new music
-        and for further exploring my favorite artists&apos; discographies.
+        and for further exploring my favorite artists&apos; discographies. Furthermore, it allows
+        you to create an account and keep track of your own personal music collection.
       </div>
-      <div>
+      <div className="mb-6 font-primary">
         As soon as I found out that they have a{" "}
         <Link
           href="https://www.discogs.com/developers"
+          target="_blank"
+          rel="noopener noreferrer"
           className="underline hover:text-foreground/80 transition-color duration-300"
         >
           publicly-accessible API
