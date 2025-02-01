@@ -54,6 +54,14 @@ export async function fetchFilteredReleases(
   const endIndex = startIndex + RELEASES_PER_PAGE
   const filteredReleasesForCurrentPage = filteredReleases.slice(startIndex, endIndex)
 
+  // Add delay to see <Suspense /> working
+  await new Promise((resolve) =>
+    setTimeout(() => {
+      console.log("Timeout resolved")
+      resolve(null)
+    }, 2000)
+  )
+
   return filteredReleasesForCurrentPage
 }
 
