@@ -49,7 +49,7 @@ export default function NotFound() {
         <h1 className="text-[100px] sm:text-[200px]">4</h1>
       </div>
 
-      <h2 className="text-[40px] mb-14 text-center leading-[3rem]">
+      <h2 className="text-[30px] sm:text-[40px] text-center leading-[3rem]">
         The page you&apos;re looking for does not exist!
       </h2>
     </div>
