@@ -10,7 +10,7 @@ export default function Header({ classes }: { classes: string }) {
       <div className="flex justify-between items-center text-2xl py-4">
         <div className="flex gap-4 items-center justify-center">
           {/* Site logo */}
-          <Link href="/" className="hover:text-foreground/60 transition duration-300">
+          <Link href="/" className="hover:text-foreground/60 transition duration-300 overflow-visible">
             <span className="italic">QF</span>
           </Link>
           {/* Locale + local time */}
