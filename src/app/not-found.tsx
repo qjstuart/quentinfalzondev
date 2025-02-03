@@ -41,12 +41,12 @@ export default function NotFound() {
 
   return (
     <div className="flex flex-col items-center gap-8 max-w-[1024px] mx-auto mt-24 px-8">
-      <div className="flex items-center gap-6 relative font-bold">
-        <h1 className="text-[200px] sm:text-[300px]">4</h1>
+      <div className="flex items-center gap-4 relative font-bold">
+        <h1 className="text-[100px] sm:text-[200px]">4</h1>
 
-        <Vinyl404Logo classes="logo-vinyl size-[150px] sm:size-[230px]" />
+        <Vinyl404Logo classes="logo-vinyl size-[80px] sm:size-[160px]" />
 
-        <h1 className="text-[200px] sm:text-[300px]">4</h1>
+        <h1 className="text-[100px] sm:text-[200px]">4</h1>
       </div>
 
       <h2 className="text-[40px] mb-14 text-center leading-[3rem]">
