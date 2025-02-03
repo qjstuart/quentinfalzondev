@@ -32,6 +32,9 @@ export default {
       transitionProperty: {
         "grid-rows": "grid-template-rows", // Custom property name: actual CSS property
       },
+      animation: {
+        "ping": "ping 2s infinite",
+      },
     },
   },
   plugins: [],

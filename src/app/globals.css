@@ -43,6 +43,7 @@
 
 body {
   line-height: 1.5;
+  font-family: var(--font-primary);
 
   --font-primary: var(--font-pt-sans);
   --font-secondary: var(--font-oswald);
@@ -67,6 +68,10 @@ p {
 
 .font-secondary {
   font-family: var(--font-secondary);
+}
+
+.font-inter {
+  font-family: var(--font-inter);
 }
 
 .release-field {
