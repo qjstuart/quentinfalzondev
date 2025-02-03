@@ -8,26 +8,31 @@ export default function NotFound() {
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
 
-  function invertLogoColor() {
-    const vinylLogo = document.querySelector(".logo-vinyl")
-    if (!vinylLogo) {
-      console.log("No vinyl logo found!")
-      return
-    }
-    if (theme === "light") {
-      vinylLogo.classList.remove("invert")
-    }
-    if (theme === "dark") {
-      vinylLogo.classList.add("invert")
-    }
-  }
-
   // We need to wait until it is safe to show the UI.
   // Otherwise we risk hydration mismatch errors.
   useEffect(() => setMounted(true), [])
 
-  // Whenever the theme changes, invert the logo color.
-  useEffect(() => invertLogoColor(), [theme, invertLogoColor])
+  useEffect(() => {
+    function invertLogoColor() {
+      const vinylLogo = document.querySelector(".logo-vinyl")
+      if (!vinylLogo) {
+        return
+      }
+      if (theme === "light") {
+        vinylLogo.classList.remove("invert")
+      }
+      if (theme === "dark") {
+        vinylLogo.classList.add("invert")
+      }
+    }
+
+    // Whenever the theme changes, invert the logo color.
+    // We do this only once the component has mounted, 
+    // otherwise the logo will not be found in the DOM.
+    if (mounted) {
+      invertLogoColor()
+    }
+  }, [theme, mounted])
 
   if (!mounted) {
     // Render placeholder to prevent Cumulative Layout Shift (CLS)
