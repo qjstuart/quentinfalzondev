@@ -50,9 +50,9 @@ export default function ThemeSwitch() {
   }
 
   if (resolvedTheme === "dark") {
-    return <FiSun onClick={() => setTheme("light")} className="hover:cursor-pointer hover:text-foreground/60 transition duration-300" />
+    return <FiSun onClick={() => setTheme("light")} className="hover:cursor-pointer" />
   }
   if (resolvedTheme === "light") {
-    return <FiMoon onClick={() => setTheme("dark")} className="hover:cursor-pointer hover:text-foreground/60 transition duration-300" />
+    return <FiMoon onClick={() => setTheme("dark")} className="hover:cursor-pointer" />
   }
 }
