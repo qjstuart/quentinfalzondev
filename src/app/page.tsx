@@ -1,15 +1,19 @@
 export default function Home() {
   return (
-    <section className="p-8 mx-auto">
-      <p className="text-[40px] font-inter">Hello! I&apos;m Quentin Falzon</p>
-      <h1 className="font-semibold font-secondary italic pb-3">Quentin Falzon</h1>
-      {/* <div>
-        <Link href="/about">About</Link>
-      </div>
-      <div>
-        <Link href="/projects">Projects</Link>
-      </div> */}
-      <p>Web developer based in </p>
-    </section>
+    <div className="max-w-[1200px] mx-auto">
+      <section className="grid md:grid-cols-2 gap-12 md:gap-24 items-start w-full p-8 mx-auto">
+        <div>
+          <h1 className="text-[40px] md:text-[45px] lg:text-[50px] tracking-tight leading-tight text-nowrap">
+            Hi there! <br /> I&apos;m{" "}
+            <span className="font-semibold font-secondary italic pb-3 inline-block">
+              Quentin Falzon
+            </span>
+          </h1>
+        </div>
+        <div>
+          <h2 className="md:text-[25px] lg:text-[30px] leading-10">A Web Developer based in Valletta, Malta</h2>
+        </div>
+      </section>
+    </div>
   )
 }
