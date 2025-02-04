@@ -16,7 +16,7 @@ export default function Header({ classes }: { classes: string }) {
           {/* Locale + local time */}
           <span className="flex flex-col gap-1 justify-center px-3">
             <div className="flex gap-1">
-              <p className="text-sm leading-none text-nowrap">Valletta, Malta</p>
+              <p className="text-sm leading-none text-nowrap font-inter">Valletta, Malta</p>
               {/* Ping animation */}
               <span className="relative flex size-[8px]">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
@@ -24,7 +24,7 @@ export default function Header({ classes }: { classes: string }) {
               </span>
             </div>
 
-            <Time classes="text-xs leading-none font-inter text-gray" />
+            <Time classes="text-xs leading-none text-gray font-inter" />
           </span>
         </div>
 
