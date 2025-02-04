@@ -35,12 +35,12 @@ export default function Header({ classes }: { classes: string }) {
           >
             <em>Projects</em>
           </Link>
-          <Link
+          {/* <Link
             href="/about"
             className="hidden sm:inline hover:text-foreground/60 transition duration-300"
           >
             <em>About</em>
-          </Link>
+          </Link> */}
           <Link
             href="/contact"
             className="hidden sm:inline hover:text-foreground/60 transition duration-300"
