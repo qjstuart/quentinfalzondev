@@ -11,7 +11,7 @@ export default function Header({ classes }: { classes: string }) {
         <div className="flex gap-4 items-center justify-center">
           {/* Site logo */}
           <Link href="/" className="hover:text-foreground/60 transition duration-300 overflow-visible">
-            <span className="italic">QF</span>
+            <span className="italic pr-2">QF</span>
           </Link>
           {/* Locale + local time */}
           <span className="flex flex-col gap-1 justify-center px-3">
