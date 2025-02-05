@@ -23,12 +23,12 @@ export default function Home() {
             <Button
               classes="bg-foreground text-background hover:bg-[rgba(var(--foreground),0.75)]"
               text="View My Work"
-              href=""
+              href="/projects"
             />
             <Button
               classes="bg-background text-foreground border border-foreground hover:bg-[rgba(var(--foreground),0.15)]"
               text="Get In Touch"
-              href=""
+              href="/contact"
             />
           </div>
         </div>
