@@ -40,7 +40,7 @@ export default function About() {
       {/* Technologies section */}
       <h2 className="mb-4">Technologies I Use</h2>
       {/* <section className="flex flex-wrap gap-4"> */}
-      <section className="grid grid-cols-[repeat(auto-fit,minmax(70px,1fr))] gap-y-4 py-3">
+      <section className="grid grid-cols-[repeat(auto-fit,minmax(70px,1fr))] gap-y-4 pt-3 mb-12">
         {/* HTML */}
         <div className="flex flex-col gap-1 items-center justify-center">
           <div className="relative size-[40px]">
@@ -65,6 +65,14 @@ export default function About() {
           <span className="text-sm">JavaScript</span>
         </div>
 
+        {/* TypeScript */}
+        <div className="flex flex-col gap-1 items-center justify-center">
+          <div className="relative size-[40px]">
+            <Image src="/logo-typescript.png" alt="TypeScript" fill className="object-contain" />
+          </div>
+          <span className="text-sm">TypeScript</span>
+        </div>
+
         {/* React */}
         <div className="flex flex-col gap-1 items-center justify-center">
           <div className="relative size-[40px]">
@@ -80,6 +88,22 @@ export default function About() {
           </div>
           <span className="text-sm">NextJS</span>
         </div>
+
+        {/* 11ty */}
+        <div className="flex flex-col gap-1 items-center justify-center">
+          <div className="relative size-[40px]">
+            <Image src="/logo-eleventy.png" alt="11ty (Eleventy)" fill className="object-contain" />
+          </div>
+          <span className="text-sm">11ty</span>
+        </div>
+
+        {/* Nunjucks */}
+        <div className="flex flex-col gap-1 items-center justify-center">
+          <div className="relative size-[40px]">
+            <Image src="/logo-nunjucks.svg" alt="Nunjucks" fill className="object-contain" />
+          </div>
+          <span className="text-sm">Nunjucks</span>
+        </div>  
 
         {/* Netlify */}
         <div className="flex flex-col gap-1 items-center justify-center">
@@ -116,13 +140,18 @@ export default function About() {
         {/* .NET */}
         <div className="flex flex-col gap-1 items-center justify-center">
           <div className="relative size-[40px]">
-            <Image src="/logo-dotnet.png" alt="Microsoft .NET Core" fill className="object-contain" />
+            <Image
+              src="/logo-dotnet.png"
+              alt="Microsoft .NET Core"
+              fill
+              className="object-contain"
+            />
           </div>
           <span className="text-sm">.NET Core</span>
         </div>
       </section>
 
-      <h2 className="mt-8">Outside of Coding</h2>
+      <h2 className="mb-4">Outside of Coding</h2>
       <div>
         {" "}
         Outside the realm of coding your best chances of finding me are at the tennis court, the
