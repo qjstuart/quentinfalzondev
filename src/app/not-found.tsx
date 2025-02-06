@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
 import Vinyl404Logo from "@/components/Vinyl404Logo"
+import { invertLogoColorBasedOnTheme } from "./lib/utils"
 
 export default function NotFound() {
   const [mounted, setMounted] = useState(false)
@@ -12,25 +13,12 @@ export default function NotFound() {
   // Otherwise we risk hydration mismatch errors.
   useEffect(() => setMounted(true), [])
 
+  // Whenever the theme changes, invert the logo color.
+  // We do this only once the component has mounted,
+  // otherwise the logo will not be found in the DOM.
   useEffect(() => {
-    function invertLogoColor() {
-      const vinylLogo = document.querySelector(".logo-vinyl")
-      if (!vinylLogo) {
-        return
-      }
-      if (theme === "light") {
-        vinylLogo.classList.remove("invert")
-      }
-      if (theme === "dark") {
-        vinylLogo.classList.add("invert")
-      }
-    }
-
-    // Whenever the theme changes, invert the logo color.
-    // We do this only once the component has mounted, 
-    // otherwise the logo will not be found in the DOM.
-    if (mounted) {
-      invertLogoColor()
+    if (mounted && theme) {
+      invertLogoColorBasedOnTheme(".logo-vinyl", theme.toString())
     }
   }, [theme, mounted])
 

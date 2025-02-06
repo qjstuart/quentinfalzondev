@@ -252,3 +252,16 @@ export async function fetchWithErrorHandling<T>(fetchFn: () => Promise<T>): Prom
     return null
   }
 }
+
+export function invertLogoColorBasedOnTheme(className: string, theme: string) {
+  const logos = document.querySelectorAll(className)
+  if (!logos) {
+    return
+  }
+  if (theme === "light") {
+    logos.forEach((logo) => logo.classList.remove("invert"))
+  }
+  if (theme === "dark") {
+    logos.forEach((logo) => logo.classList.add("invert"))
+  }
+}

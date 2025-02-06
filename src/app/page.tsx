@@ -1,4 +1,5 @@
 import Button from "@/components/Button"
+import Socials from "@/components/Socials"
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
               Quentin Falzon.
             </span>
           </h1>
+          <Socials />
         </div>
         <div className="">
           <h2 className="md:text-[25px] lg:text-[30px] leading-8 lg:leading-10 pb-2">
