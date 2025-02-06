@@ -19,7 +19,7 @@ const projectInfo = {
           Discogs
           <IoIosInformationCircleOutline className="anchor-discogs inline outline-none size-[20px]" />
         </span>{" "}
-        <MyTooltip anchorSelect=".anchor-discogs" place="top-start">
+        <MyTooltip anchorSelect=".anchor-discogs" place="top-start" fontSize="1rem">
           An online music database & marketplace. <br /> Similar to what IMDB is for movies.
         </MyTooltip>
         for several years now. It serves as an invaluable resource - both for discovering new music

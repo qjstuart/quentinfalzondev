@@ -7,10 +7,12 @@ export default function MyTooltip({
   anchorSelect,
   place = "top",
   children,
+  fontSize = "0.8rem",
 }: {
   anchorSelect: string
   place: PlacesType
   children: ReactNode
+  fontSize: string
 }) {
   return (
     <Tooltip
@@ -20,7 +22,7 @@ export default function MyTooltip({
       style={{
         backgroundColor: "rgba(var(--foreground))",
         color: "rgba(var(--background))",
-        fontSize: "0.8rem",
+        fontSize: fontSize,
         paddingBlock: "0.5rem",
         paddingInline: "0.8rem",
         lineHeight: 1.3,
