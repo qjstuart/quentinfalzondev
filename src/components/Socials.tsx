@@ -33,11 +33,19 @@ export default function Socials() {
   return (
     // Github & LinkedIn links
     <div className="socials-container flex gap-4 pt-2 invert">
-      <Link href="https://github.com/qjstuart" target="_blank">
-        <Image src="/logo-github.png" alt="GitHub" width={40} height={40} />
+      <Link
+        href="https://github.com/qjstuart"
+        target="_blank"
+        className="relative size-[30px] md:size-[40px]"
+      >
+        <Image src="/logo-github.png" alt="GitHub" fill />
       </Link>
-      <Link href="https://www.linkedin.com/in/quentin-falzon-b7b56a19b/" target="_blank">
-        <Image src="/logo-linkedin.png" alt="LinkedIn" width={40} height={40} />
+      <Link
+        href="https://www.linkedin.com/in/quentin-falzon-b7b56a19b/"
+        target="_blank"
+        className="relative size-[30px] md:size-[40px]"
+      >
+        <Image src="/logo-linkedin.png" alt="LinkedIn" fill />
       </Link>
     </div>
   )

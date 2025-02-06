@@ -2,6 +2,7 @@ import React from "react"
 import Link from "next/link"
 import ThemeSwitch from "./ThemeSwitch"
 import { IoMenu } from "react-icons/io5"
+import { CiGlobe } from "react-icons/ci"
 import Time from "@/components/Time"
 
 export default function Header({ classes }: { classes: string }) {
@@ -10,11 +11,14 @@ export default function Header({ classes }: { classes: string }) {
       <div className="flex justify-between items-center text-2xl py-4">
         <div className="flex gap-4 items-center justify-center">
           {/* Site logo */}
-          <Link href="/" className="hover:text-foreground/60 transition duration-300 overflow-visible">
+          <Link
+            href="/"
+            className="hover:text-foreground/60 transition duration-300 overflow-visible"
+          >
             <span className="italic pr-2">QF</span>
           </Link>
           {/* Locale + local time */}
-          <span className="flex flex-col gap-1 justify-center px-3">
+          <span className="flex flex-col gap-[3px] justify-center px-3 pt-1">
             <div className="flex gap-1">
               <p className="text-sm leading-none text-nowrap font-inter">Valletta, Malta</p>
               {/* Ping animation */}
@@ -24,7 +28,10 @@ export default function Header({ classes }: { classes: string }) {
               </span>
             </div>
 
-            <Time classes="text-xs leading-none text-gray font-inter" />
+            <div className="flex items-center gap-[4px]">
+              <CiGlobe className="size-[12px] fill-gray" />
+              <Time classes="text-xs leading-none text-gray font-inter" />
+            </div>
           </span>
         </div>
 

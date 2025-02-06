@@ -35,6 +35,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="w-full p-8 mt-14 mx-auto bg-gray/10 rounded-3xl">
+        <h2 className="text-[30px] mb-5">About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur itaque quas hic modi ipsa saepe cupiditate illum rem recusandae facere earum dolorem similique, laborum aliquam libero ipsum nobis maxime! Pariatur?</p>
+      </section>
     </div>
   )
 }
