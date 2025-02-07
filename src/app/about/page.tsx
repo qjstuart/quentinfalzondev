@@ -40,13 +40,13 @@ export default function About() {
       {/* Technologies section */}
       <h2 className="mb-4">Technologies I Use</h2>
       {/* <section className="flex flex-wrap gap-4"> */}
-      <section className="grid grid-cols-[repeat(auto-fit,minmax(70px,1fr))] gap-y-4 pt-3 mb-12">
+      <section className="grid grid-cols-[repeat(auto-fit,minmax(70px,1fr))] gap-y-4 pt-3 mb-12 text-sm">
         {/* HTML */}
         <div className="flex flex-col gap-1 items-center justify-center">
           <div className="relative size-[40px]">
             <Image src="/logo-html.png" alt="HTML" fill className="object-contain" />
           </div>
-          <span className="text-sm">HTML</span>
+          <span>HTML</span>
         </div>
 
         {/* CSS */}
@@ -54,7 +54,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-css.png" alt="CSS" fill className="object-contain" />
           </div>
-          <span className="text-sm">CSS</span>
+          <span>CSS</span>
         </div>
 
         {/* JavaScript */}
@@ -62,7 +62,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-javascript.png" alt="JavaScript" fill className="object-contain" />
           </div>
-          <span className="text-sm">JavaScript</span>
+          <span>JavaScript</span>
         </div>
 
         {/* TypeScript */}
@@ -70,7 +70,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-typescript.png" alt="TypeScript" fill className="object-contain" />
           </div>
-          <span className="text-sm">TypeScript</span>
+          <span>TypeScript</span>
         </div>
 
         {/* React */}
@@ -78,7 +78,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-react.png" alt="React" fill className="object-contain" />
           </div>
-          <span className="text-sm">React</span>
+          <span>React</span>
         </div>
 
         {/* NextJS */}
@@ -86,7 +86,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-nextjs.svg" alt="NextJS" fill className="object-contain" />
           </div>
-          <span className="text-sm">NextJS</span>
+          <span>NextJS</span>
         </div>
 
         {/* 11ty */}
@@ -94,7 +94,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-eleventy.png" alt="11ty (Eleventy)" fill className="object-contain" />
           </div>
-          <span className="text-sm">11ty</span>
+          <span>11ty</span>
         </div>
 
         {/* Nunjucks */}
@@ -102,7 +102,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-nunjucks.svg" alt="Nunjucks" fill className="object-contain" />
           </div>
-          <span className="text-sm">Nunjucks</span>
+          <span>Nunjucks</span>
         </div>  
 
         {/* Netlify */}
@@ -110,7 +110,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-netlify.svg" alt="Netlify" fill className="object-contain" />
           </div>
-          <span className="text-sm">Netlify</span>
+          <span>Netlify</span>
         </div>
 
         {/* Tailwind */}
@@ -118,7 +118,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-tailwind.svg" alt="Tailwind" fill className="object-contain" />
           </div>
-          <span className="text-sm">Tailwind</span>
+          <span>Tailwind</span>
         </div>
 
         {/* Sass */}
@@ -126,7 +126,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-sass.png" alt="Sass" fill className="object-contain" />
           </div>
-          <span className="text-sm">Sass</span>
+          <span>Sass</span>
         </div>
 
         {/* NodeJS */}
@@ -134,7 +134,7 @@ export default function About() {
           <div className="relative size-[40px]">
             <Image src="/logo-nodejs.png" alt="NodeJS" fill className="object-contain" />
           </div>
-          <span className="text-sm">NodeJS</span>
+          <span>NodeJS</span>
         </div>
 
         {/* .NET */}
@@ -147,7 +147,7 @@ export default function About() {
               className="object-contain"
             />
           </div>
-          <span className="text-sm">.NET Core</span>
+          <span>.NET Core</span>
         </div>
       </section>
 
