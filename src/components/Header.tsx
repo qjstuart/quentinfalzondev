@@ -7,7 +7,7 @@ import Time from "@/components/Time"
 
 export default function Header({ classes }: { classes: string }) {
   return (
-    <header className={`${classes} sticky top-0 z-10 bg-background`}>
+    <header className={`${classes} sticky top-0 z-10 bg-background max-h-[65px]`}>
       <div className="flex justify-between items-center text-2xl py-4">
         <div className="flex gap-4 items-center justify-center">
           {/* Site logo */}
