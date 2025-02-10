@@ -6,52 +6,27 @@ import { loadSlim } from "@tsparticles/slim"
 import { useState, useEffect, useMemo } from "react"
 
 export default function MyParticles({ classes }: { classes: string }) {
-  const [init, setInit] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine)
     }).then(() => {
-      setInit(true)
+      setMounted(true)
     })
   }, [])
 
+  // This function runs when the Particles container loads
   async function particlesLoaded(container?: Container): Promise<void> {
-    console.log(container)
+    console.log("New container: ", container)
   }
 
   const options: ISourceOptions = useMemo(
     () => ({
-      background: {
-        // color: {
-        //   value: "#0d47a1",
-        // },
-      },
       fpsLimit: 120,
-      interactivity: {
-        // events: {
-        //   onClick: {
-        //     enable: true,
-        //     mode: "push",
-        //   },
-        //   onHover: {
-        //     enable: true,
-        //     mode: "repulse",
-        //   },
-        // },
-        modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
-            distance: 200,
-            duration: 0.4,
-          },
-        },
-      },
       particles: {
         color: {
-          value: "#ffffff",
+          value: "#8B0000",
         },
         links: {
           color: "#ffffff",
@@ -77,7 +52,7 @@ export default function MyParticles({ classes }: { classes: string }) {
           value: 80,
         },
         opacity: {
-          value: 0.3,
+          value: 0.5,
         },
         shape: {
           type: "circle",
@@ -91,7 +66,7 @@ export default function MyParticles({ classes }: { classes: string }) {
     []
   )
 
-  if (!init) {
+  if (!mounted) {
     return <></>
   }
 
