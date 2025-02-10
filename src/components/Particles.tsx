@@ -29,10 +29,10 @@ export default function MyParticles({ classes }: { classes: string }) {
           value: "#8B0000",
         },
         links: {
-          color: "#ffffff",
+          color: "#808080",
           distance: 150,
           enable: true,
-          opacity: 0.1,
+          opacity: 0.5,
           width: 1,
         },
         move: {
@@ -42,23 +42,23 @@ export default function MyParticles({ classes }: { classes: string }) {
             default: OutMode.out,
           },
           random: false,
-          speed: 1,
+          speed: 2,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 50,
         },
         opacity: {
           value: 0.5,
         },
         shape: {
-          type: "circle",
+          type: "square",
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 3, max: 8 },
         },
       },
       detectRetina: true,
