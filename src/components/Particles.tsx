@@ -32,7 +32,7 @@ export default function MyParticles({ classes }: { classes: string }) {
           color: "#808080",
           distance: 150,
           enable: true,
-          opacity: 0.5,
+          opacity: 0.3,
           width: 1,
         },
         move: {
@@ -42,7 +42,7 @@ export default function MyParticles({ classes }: { classes: string }) {
             default: OutMode.out,
           },
           random: false,
-          speed: 2,
+          speed: 1.5,
           straight: false,
         },
         number: {
@@ -55,7 +55,7 @@ export default function MyParticles({ classes }: { classes: string }) {
           value: 0.5,
         },
         shape: {
-          type: "square",
+          type: "circle",
         },
         size: {
           value: { min: 3, max: 8 },

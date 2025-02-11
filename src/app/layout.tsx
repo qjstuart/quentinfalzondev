@@ -6,6 +6,7 @@ import { Providers } from "../providers"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Particles from "@/components/Particles"
+import Main from "@/components/MainContent"
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
@@ -35,7 +36,7 @@ export default function RootLayout({
       >
         <Providers>
           <Header classes={"px-6"} />
-          <main className="flex flex-col py-12 px-6">{children}</main>
+          <Main className="flex flex-col py-12 px-6">{children}</Main>
           <Footer classes={"px-6"} />
           <Particles classes="-z-10" />
         </Providers>
