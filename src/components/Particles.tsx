@@ -58,7 +58,7 @@ export default function MyParticles({ classes }: { classes: string }) {
           type: "circle",
         },
         size: {
-          value: { min: 3, max: 8 },
+          value: { min: 3, max: 5 },
         },
       },
       detectRetina: true,
