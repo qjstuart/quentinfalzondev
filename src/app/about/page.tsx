@@ -33,8 +33,8 @@ export default function About() {
             <span className="text-nowrap">CS Technologies.</span>
           </Link>{" "}
           There I was responsible for developing the frontend UI on one project, and also worked
-          across the full-stack on a custom Content Management System (CMS) that allows for easy management of site content and
-          performs at scale (thousands of daily orders).
+          across the full-stack on a custom Content Management System (CMS) that allows for easy
+          management of site content and performs at scale (thousands of daily orders).
         </div>
 
         {/* Paragraph 3 */}
@@ -51,8 +51,8 @@ export default function About() {
             <li>Separation between the front-end and back-end</li>
             <li>Use of APIs rather than databases</li>
             <li>
-              Front-load with as much static markup as possible, then enhance with JavaScript or Single Page
-              Application (SPA) elements e.g. React Components
+              Front-load with as much static markup as possible, then enhance with JavaScript or
+              Single Page Application (SPA) elements e.g. React Components
             </li>
           </ul>
         </div>
@@ -178,8 +178,8 @@ export default function About() {
         <h2 className="mb-4">Outside of Coding</h2>
         <div>
           {" "}
-          Outside the realm of coding your best chances of finding me are at the tennis court, the
-          gym, or at a sound system spinning some of my{" "}
+          Outside the realm of coding your best chances of finding me are on a tennis court, at a gym, or
+          at a sound system spinning some of my{" "}
           <Link href="/projects/record-collection/about" target="_blank" className="text-sky-500">
             favourite tunes
           </Link>
