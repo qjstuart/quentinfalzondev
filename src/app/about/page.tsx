@@ -27,7 +27,7 @@ export default function About() {
         </div>
         {/* Paragraph 2 */}
         <div>
-          I have been fortunate to contribute to a variety of projects in the industries of
+          So far I have been fortunate to contribute to a variety of projects in the industries of
           blockchain, payroll, and most recently <span className="text-nowrap">e-commerce</span> at{" "}
           <Link href="https://www.cs-technologies.net/" target="_blank" className="underline">
             <span className="text-nowrap">CS Technologies.</span>
