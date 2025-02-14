@@ -34,6 +34,7 @@ export default {
       },
       animation: {
         ping: "ping 2s infinite",
+        slowspin: "spin 3s linear infinite",
       },
     },
   },
