@@ -26,7 +26,7 @@ export default function MyParticles({ classes }: { classes: string }) {
       fpsLimit: 120,
       particles: {
         color: {
-          value: "#8B0000",
+          value: "#808080",
         },
         links: {
           color: "#808080",
