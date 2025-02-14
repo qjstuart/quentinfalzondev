@@ -1,5 +1,5 @@
 import { RELEASES_PER_PAGE } from "@/app/lib/utils"
-import VinylLogo from "./VinylLogo"
+import Vinyl404Logo from "./Vinyl404Logo"
 
 export function ReleasesListSkeleton() {
   return (
@@ -8,7 +8,7 @@ export function ReleasesListSkeleton() {
         <li key={index}>
           <div className="flex justify-center items-center size-[200px] relative bg-gray/10 rounded-md">
             {" "}
-            <VinylLogo classes="size-[75%] animate-slowspin duration-[8s] origin-center" />
+            <Vinyl404Logo classes="size-[75%] animate-slowspin duration-[8s] origin-center" />
           </div>
         </li>
       ))}

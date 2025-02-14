@@ -25,11 +25,7 @@ export default async function RecordCollection(props: {
   // If user enters a non-existent page number in URL
   if (currentPage > totalPages || currentPage < 0) {
     return (
-      // <div>
-      //   Page not found!
-      //   <Link href="/">Back to homepage</Link>
       <NotFound />
-      // </div>
     )
   }
 
