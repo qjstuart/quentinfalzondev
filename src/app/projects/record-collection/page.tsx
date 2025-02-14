@@ -4,7 +4,6 @@ import ReleasesList from "@/components/ReleasesList"
 import { ReleasesListSkeleton } from "@/components/Skeletons"
 import { Suspense } from "react"
 import { fetchTotalPages, fetchWithErrorHandling } from "@/app/lib/utils"
-import Link from "next/link"
 import NotFound from "@/app/not-found"
 
 export default async function RecordCollection(props: {

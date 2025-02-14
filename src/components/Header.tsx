@@ -1,6 +1,5 @@
 import Link from "next/link"
 import ThemeSwitch from "./ThemeSwitch"
-import { IoMenu } from "react-icons/io5"
 import { CiGlobe } from "react-icons/ci"
 import Time from "@/components/Time"
 import MobileSidebar from "./MobileSidebar"

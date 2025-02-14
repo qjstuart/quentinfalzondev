@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -10,7 +10,6 @@ import Socials from "@/components/Socials"
 export default function MobileSidebar() {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
-  const [selectedIndicator, setSelectedIndicator] = useState(pathname)
 
   function toggleSideBar() {
     setIsOpen(!isOpen)
