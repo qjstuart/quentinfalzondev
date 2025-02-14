@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Vinyl404Logo({ classes }: { classes: string }) {
+export default function VinylLogo({ classes }: { classes: string }) {
   return (
     <svg
       version="1.0"

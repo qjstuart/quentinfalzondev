@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes"
 import { useState, useEffect } from "react"
-import Vinyl404Logo from "@/components/Vinyl404Logo"
+import VinylLogo from "@/components/VinylLogo"
 import { invertLogoColorBasedOnTheme } from "./lib/utils"
 
 export default function NotFound() {
@@ -32,7 +32,7 @@ export default function NotFound() {
       <div className="flex items-center gap-4 relative font-bold">
         <h1 className="text-[100px] sm:text-[200px]">4</h1>
 
-        <Vinyl404Logo classes="logo-vinyl size-[80px] sm:size-[160px]" />
+        <VinylLogo classes="logo-vinyl size-[80px] sm:size-[160px]" />
 
         <h1 className="text-[100px] sm:text-[200px]">4</h1>
       </div>
