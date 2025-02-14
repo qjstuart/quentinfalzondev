@@ -40,7 +40,7 @@ export default function ContactForm() {
     <>
       {!submitted && (
         <>
-          <section className="mx-auto mt-12">
+          <section className="mx-auto sm:mt-12">
             <h1 className="text-center pb-8">Get In Touch</h1>
             <h2 className="text-center pb-6">
               Let&apos;s start working together! My inbox is always open.
