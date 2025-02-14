@@ -7,6 +7,7 @@ import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import Particles from "@/components/Particles"
 import Main from "@/components/MainContent"
+import MobileSidebar from "@/components/MobileSidebar"
 
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",

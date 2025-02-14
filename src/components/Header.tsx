@@ -1,9 +1,9 @@
-import React from "react"
 import Link from "next/link"
 import ThemeSwitch from "./ThemeSwitch"
 import { IoMenu } from "react-icons/io5"
 import { CiGlobe } from "react-icons/ci"
 import Time from "@/components/Time"
+import MobileSidebar from "./MobileSidebar"
 
 export default function Header({ classes }: { classes: string }) {
   return (
@@ -13,7 +13,7 @@ export default function Header({ classes }: { classes: string }) {
           {/* Site logo */}
           <Link
             href="/"
-            className="hover:text-foreground/60 transition duration-300 overflow-visible"
+            className="sm:hover:text-foreground/60 transition duration-300 overflow-visible"
           >
             <span className="italic pr-2">QF</span>
           </Link>
@@ -38,24 +38,24 @@ export default function Header({ classes }: { classes: string }) {
         <div className="flex gap-x-5 items-center">
           <Link
             href="/projects"
-            className="hidden sm:inline hover:text-foreground/60 transition duration-300"
+            className="hidden sm:inline sm:hover:text-foreground/60 transition duration-300"
           >
             <em>Projects</em>
           </Link>
           <Link
             href="/about"
-            className="hidden sm:inline hover:text-foreground/60 transition duration-300"
+            className="hidden sm:inline sm:hover:text-foreground/60 transition duration-300"
           >
             <em>About</em>
           </Link>
           <Link
             href="/contact"
-            className="hidden sm:inline hover:text-foreground/60 transition duration-300"
+            className="hidden sm:inline sm:hover:text-foreground/60 transition duration-300"
           >
             <em>Contact</em>
           </Link>
           <ThemeSwitch />
-          <IoMenu className="inline sm:hidden" />
+          <MobileSidebar />
         </div>
       </div>
     </header>
