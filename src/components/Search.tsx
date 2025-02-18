@@ -22,7 +22,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   return (
     <div className="input-box flex items-center h-12 w-full rounded-md border border-gray-200">
-      <FaMagnifyingGlass className="mx-4 hover:cursor-pointer" />
+      <div className="px-3 hover:cursor-pointer h-full place-content-center">
+        <FaMagnifyingGlass className="size-[20px]" />
+      </div>
       <label htmlFor="search" className="sr-only">
         Search
       </label>

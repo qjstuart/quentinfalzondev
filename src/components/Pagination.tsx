@@ -24,7 +24,7 @@ export default function Pagination({
   const allPages = generatePagination(currentPage, numberOfPages)
 
   return (
-    <div className="inline-flex">
+    <div className="inline-flex min-w-[375px] justify-center">
       <PaginationArrow
         direction="left"
         href={createPageURL(currentPage - 1)}
