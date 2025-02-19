@@ -170,17 +170,14 @@ export default function About() {
           <span>.NET Core</span>
         </div>
       </section>
-      <p className="text-md sm:text-xl">
-        This is a non-exhaustive list of technologies I work with most often
-      </p>
 
       <section className="text-md sm:text-xl my-8 sm:my-12">
         <h2 className="mb-4">Outside of Coding</h2>
         <div>
           {" "}
-          Outside the realm of coding your best chances of finding me are on a tennis court, at a gym, or
-          at a sound system spinning some of my{" "}
-          <Link href="/projects/record-collection/about" target="_blank" className="text-sky-500">
+          Outside the realm of coding your best chances of finding me are on a tennis court, at a
+          gym, or at a sound system spinning some of my{" "}
+          <Link href="/projects/record-collection/about" target="_blank" className="underline hover:text-gray transition-colors duration-300">
             favourite tunes
           </Link>
           . However, if you wish to get in touch it&apos;s easiest to email me through the contact
