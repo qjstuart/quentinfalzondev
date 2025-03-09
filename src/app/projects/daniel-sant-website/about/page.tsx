@@ -23,7 +23,7 @@ const project: Project = {
 export default function RecordCollectionAboutPage() {
   return (
     <>
-      <ProjectAboutPage project={project} />
+      <ProjectAboutPage project={project} openInNewTab={true} />
     </>
   )
 }
