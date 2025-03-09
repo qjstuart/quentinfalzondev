@@ -3,7 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaRegEye } from "react-icons/fa"
 
-export default function ProjectAboutPage({ project }: { project: Project }) {
+export default function ProjectAboutPage({
+  project,
+  openInNewTab,
+}: {
+  project: Project
+  openInNewTab: boolean
+}) {
   return (
     <>
       <section className="flex flex-col items-center max-w-[1024px] mx-auto">
@@ -24,7 +30,11 @@ export default function ProjectAboutPage({ project }: { project: Project }) {
           <Image src="/mockup_dummy.avif" alt="" fill className="object-contain"></Image>
         </div>
         <button className="border-2 border-foreground rounded-md px-5 py-3 text-background bg-foreground hover:bg-background hover:text-foreground transition-color duration-300">
-          <Link href={project.link} className="flex items-center gap-4">
+          <Link
+            href={project.link}
+            className="flex items-center gap-4"
+            target={openInNewTab ? "_blank" : ""}
+          >
             <FaRegEye className="size-[25px]" />
             <span className="btn-project-about text-2xl">CHECK OUT THIS PROJECT</span>
           </Link>
