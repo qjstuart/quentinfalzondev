@@ -3,7 +3,7 @@ import { Project } from "@/types/Project"
 
 const projectInfo = {
   id: "2",
-  title: "Daniel Sants Website",
+  title: "Daniel Sant's Website",
   description: "The official website of Daniel Sant",
   imageSrc: "/record_player_silver.png",
   about:
@@ -23,7 +23,7 @@ const project: Project = {
 export default function RecordCollectionAboutPage() {
   return (
     <>
-      <ProjectAboutPage project={project} openInNewTab={true} />
+      <ProjectAboutPage mockupSrc="/mockup_dummy.avif" project={project} openInNewTab={true} />
     </>
   )
 }

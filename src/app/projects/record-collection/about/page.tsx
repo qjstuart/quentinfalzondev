@@ -55,7 +55,7 @@ const project: Project = {
 export default function RecordCollectionAboutPage() {
   return (
     <>
-      <ProjectAboutPage project={project} openInNewTab={false} />
+      <ProjectAboutPage mockupSrc="/mockup_dummy.avif" project={project} openInNewTab={false} />
     </>
   )
 }

@@ -4,9 +4,11 @@ import Link from "next/link"
 import { FaRegEye } from "react-icons/fa"
 
 export default function ProjectAboutPage({
+  mockupSrc,
   project,
   openInNewTab,
 }: {
+  mockupSrc: string
   project: Project
   openInNewTab: boolean
 }) {
@@ -26,8 +28,8 @@ export default function ProjectAboutPage({
         {/* Project description & summary */}
         <div className="text-xl max-w-[800px]">{project.about}</div>
 
-        <div className="relative size-[400px] mx-auto">
-          <Image src="/mockup_dummy.avif" alt="" fill className="object-contain"></Image>
+        <div className="relative w-full h-[200px] md:h-[300px] mx-auto my-12">
+          <Image src={mockupSrc} alt="" fill className="object-contain"></Image>
         </div>
         <button className="border-2 border-foreground rounded-md px-5 py-3 text-background bg-foreground hover:bg-background hover:text-foreground transition-color duration-300">
           <Link
@@ -36,7 +38,7 @@ export default function ProjectAboutPage({
             target={openInNewTab ? "_blank" : ""}
           >
             <FaRegEye className="size-[25px]" />
-            <span className="btn-project-about text-2xl">CHECK OUT THIS PROJECT</span>
+            <span className="btn-project-about text-xl md:text-2xl">CHECK OUT THIS PROJECT</span>
           </Link>
         </button>
       </section>
