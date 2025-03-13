@@ -21,11 +21,11 @@ export default async function RecordsList({
   }
 
   return (
-    <ul className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       {releases.map((release: DiscogsCollectionItem) => (
         <li key={release.instance_id}>
           <Link href={`/projects/record-collection/${release.id}`}>
-            <div className="size-[200px] relative">
+            <div className="size-[155px] md:size-[200px] relative">
               <ReleaseThumbnail release={release} />
               {/* <Image
                 fill
