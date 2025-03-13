@@ -16,16 +16,17 @@ export default function Projects() {
           />
           <ProjectCard
             iconSrc="/daily_word_detectives.png"
-            title="Daily word detectives"
-            description={`A not-so covert replica of the famous "Wordle" game.`}
-            href={"/projects/daily-word-detectives/about"}
-          />
-          <ProjectCard
-            iconSrc="/daily_word_detectives.png"
             title={`Daniel Sant's Website`}
             description={`The official website of pianist/composer Daniel Sant.`}
             href={"/projects/daniel-sant-website/about"}
           />
+          <ProjectCard
+            iconSrc="/daily_word_detectives.png"
+            title="Daily word detectives"
+            description={`A not-so covert replica of the famous "Wordle" game.`}
+            href={"/projects/daily-word-detectives/about"}
+          />
+
           <ProjectCard
             iconSrc="/daily_word_detectives.png"
             title="NASA Pic Of The Day"

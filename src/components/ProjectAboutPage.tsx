@@ -4,11 +4,11 @@ import Link from "next/link"
 import { FaRegEye } from "react-icons/fa"
 
 export default function ProjectAboutPage({
-  mockupSrc,
+  imageSrc,
   project,
   openInNewTab,
 }: {
-  mockupSrc: string
+  imageSrc: string
   project: Project
   openInNewTab: boolean
 }) {
@@ -23,13 +23,13 @@ export default function ProjectAboutPage({
           alt={project.description}
         />
       </div> */}
-        <h1 className="mb-14">{project.title}</h1>
+        <h1 className="mb-14 text-3xl">{project.title}</h1>
 
         {/* Project description & summary */}
         <div className="text-xl max-w-[800px]">{project.about}</div>
 
         <div className="relative w-full h-[200px] md:h-[300px] mx-auto my-12">
-          <Image src={mockupSrc} alt="" fill className="object-contain"></Image>
+          <Image src={imageSrc} alt="" fill className="object-contain"></Image>
         </div>
         <button className="border-2 border-foreground rounded-md px-5 py-3 text-background bg-foreground hover:bg-background hover:text-foreground transition-color duration-300">
           <Link

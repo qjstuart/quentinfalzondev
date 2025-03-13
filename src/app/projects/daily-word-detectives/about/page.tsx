@@ -55,7 +55,7 @@ const project: Project = {
 export default function DailyWordDetectives() {
   return (
     <>
-      <ProjectAboutPage mockupSrc="/mockup_dummy.avif" project={project} openInNewTab={true}/>
+      <ProjectAboutPage imageSrc="/mockup_dummy.avif" project={project} openInNewTab={true}/>
     </>
   )
 }
