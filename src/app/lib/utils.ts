@@ -4,7 +4,7 @@ import DiscogsRelease from "@/types/DiscogsRelease"
 import DiscogsArtistResponse from "@/types/DiscogsArtistResponse"
 import AppleMusicRelease from "@/types/AppleMusicRelease"
 
-export const RELEASES_PER_PAGE = 25
+export const RELEASES_PER_PAGE = 26
 const BASE_URL = `https://api.discogs.com/users/${process.env.DISCOGS_USERNAME}/collection/folders/${process.env.DISCOGS_FOLDER_ID}/releases?token=${process.env.DISCOGS_TOKEN}&per_page=${RELEASES_PER_PAGE}&sort=artist`
 const RELEASE_URL = `https://api.discogs.com/releases/`
 const ARTIST_URL = `https://api.discogs.com/artists/`
