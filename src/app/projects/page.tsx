@@ -15,7 +15,7 @@ export default function Projects() {
             href={"/projects/record-collection/about"}
           />
           <ProjectCard
-            iconSrc="/daily_word_detectives.png"
+            iconSrc="/globe.svg"
             title={`Daniel Sant's Website`}
             description={`The official website of pianist/composer Daniel Sant.`}
             href={"/projects/daniel-sant-website/about"}
@@ -28,13 +28,13 @@ export default function Projects() {
           />
 
           <ProjectCard
-            iconSrc="/daily_word_detectives.png"
+            iconSrc="/nasa-logo.svg"
             title="NASA Pic Of The Day"
             description={`Discover the cosmos with NASA's APOD (Astronomy Picture of the Day) API!`}
             href={"/projects/daniel-sant-website/about"}
           />
           <ProjectCard
-            iconSrc="/daily_word_detectives.png"
+            iconSrc="/logo-nextjs.svg"
             title="This Portfolio Website"
             description={`Built using NextJS, Tailwind and TypeScript.`}
             href={"/projects/daniel-sant-website/about"}
