@@ -39,22 +39,27 @@ export default function About() {
 
         {/* Paragraph 3 */}
         <div>
-          Currently I am working as a freelancer with a focus on the front-end. Specifically, I am
-          getting familiar with the{" "}
+          Currently I am working on some freelance projects, with a focus on the front-end. Due to
+          the nature of these projects, my work tends to align closely with the{" "}
           <Link href="https://jamstack.org/" className="underline" target="_blank">
             JAMstack
+          </Link>{" "}
+          <span className="italic">(JavaScript, APIs, Markup)</span>. By focusing on serving
+          pre-rendered static HTML files, generated using a Static Site Generator (SSG) such as{" "}
+          <Link href="https://www.11ty.dev/" className="underline" target="_blank">
+            Eleventy
+          </Link>{" "}
+          or
+          <Link href="https://nextjs.org/" className="underline" target="_blank">
+            NextJS
           </Link>
-          . It stands for JavaScript, APIs and Markup. Briefly, the JAM philosophy strives for the
-          following:
-          <ul>
-            <li>Separation between building and hosting </li>
-            <li>Separation between the front-end and back-end</li>
-            <li>Use of APIs rather than databases</li>
-            <li>
-              Front-load with as much static markup as possible, then enhance with JavaScript or
-              Single Page Application (SPA) elements e.g. React Components
-            </li>
-          </ul>
+          , and distributed through a CDN such as{" "}
+          <Link href="https://netlify.com/" className="underline" target="_blank">
+            Netlify
+          </Link>
+          , this allows for the fastest load speeds and the best Search Engine Optimization (SEO).
+          When any sort of dynamic content is required, APIs such as REST, GraphQL or serverless
+          functions can be utilized.
         </div>
       </section>
 
@@ -177,7 +182,11 @@ export default function About() {
           {" "}
           Outside the realm of coding your best chances of finding me are on a tennis court, at a
           gym, or at a sound system spinning some of my{" "}
-          <Link href="/projects/record-collection/about" target="_blank" className="underline hover:text-gray transition-colors duration-300">
+          <Link
+            href="/projects/record-collection/about"
+            target="_blank"
+            className="underline hover:text-gray transition-colors duration-300"
+          >
             favourite tunes
           </Link>
           . However, if you wish to get in touch it&apos;s easiest to email me through the contact
