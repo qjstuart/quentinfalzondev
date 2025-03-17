@@ -5,6 +5,5 @@ export type Project = {
   title: string
   description: string
   about: ReactNode
-  imageSrc: string
   link: string
 }

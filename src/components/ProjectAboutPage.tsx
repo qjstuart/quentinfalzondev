@@ -8,7 +8,7 @@ export default function ProjectAboutPage({
   project,
   openInNewTab,
 }: {
-  imageSrc: string
+  imageSrc?: string
   project: Project
   openInNewTab: boolean
 }) {
@@ -28,9 +28,11 @@ export default function ProjectAboutPage({
         {/* Project description & summary */}
         <div className="text-xl max-w-[800px]">{project.about}</div>
 
-        <div className="relative w-full h-[200px] md:h-[300px] mx-auto my-12">
-          <Image src={imageSrc} alt="" fill className="object-contain"></Image>
-        </div>
+        {imageSrc && (
+          <div className="relative w-full h-[200px] mt-5 mb-10 sm:mt-8 sm:mb-16 md:h-[300px] ">
+            <Image src={imageSrc} alt="" fill className="object-contain"></Image>
+          </div>
+        )}
         <button className="border-2 border-foreground rounded-md px-5 py-3 text-background bg-foreground hover:bg-background hover:text-foreground transition-color duration-300">
           <Link
             href={project.link}

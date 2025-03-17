@@ -9,7 +9,6 @@ const projectInfo = {
   id: "1",
   title: "Music Catalog Browser",
   description: "A record collection app using the Discogs API",
-  imageSrc: "/record_player_silver.png",
   link: "/projects/record-collection/",
   about: (
     <>
@@ -47,7 +46,6 @@ const project: Project = {
   id: projectInfo.id,
   title: projectInfo.title,
   description: projectInfo.description,
-  imageSrc: projectInfo.imageSrc,
   about: projectInfo.about,
   link: projectInfo.link,
 }
@@ -55,7 +53,7 @@ const project: Project = {
 export default function RecordCollectionAboutPage() {
   return (
     <>
-      <ProjectAboutPage imageSrc="/mockup_dummy.avif" project={project} openInNewTab={false} />
+      <ProjectAboutPage imageSrc="/mockups/quentinfalzondev-mockups.webp" project={project} openInNewTab={false} />
     </>
   )
 }
