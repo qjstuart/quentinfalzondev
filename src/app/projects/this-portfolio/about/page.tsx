@@ -33,17 +33,18 @@ const projectInfo = {
         <p className="mb-8">
           Of course it is not always possible to pre-render everything on the server, especially
           dynamic parts of a website. For example, if users are able to toggle between light and
-          dark mode, there's no way the server knows the user's theme preference. Typically, this
-          is accessed from <span className="italic">localStorage</span>. In fact, this was
-          a challenge I faced in this project which helped me understand how SSR and CSR often work together. The
-          solution was to wrap the site in a "provider" client-side component (this does{" "}
-          <span className="font-bold">not</span> mean the site gets converted to CSR!), and only
-          render UI which depends on the current them once the page has mounted. Doing this
-          introduces a "hydration warning", because the HTML on the server no longer matches the
-          HTML generated on the client - but in this case it is fine (and recommended) to suppress the warning.
+          dark mode, there&apos;s no way the server knows the user&apos;s theme preference.
+          Typically, this is accessed from <span className="italic">localStorage</span>. In fact,
+          this was a challenge I faced in this project which helped me understand how SSR and CSR
+          often work together. The solution was to wrap the site in a &quot;provider&quot;
+          client-side component (this does <span className="font-bold">not</span> mean the site gets
+          converted to CSR!), and only render UI which depends on the current them once the page has
+          mounted. Doing this introduces a &quot;hydration warning&quot;, because the HTML on the
+          server no longer matches the HTML generated on the client - but in this case it is fine
+          (and recommended) to suppress the warning.
         </p>
         <p className="mb-8">
-          I'm also enjoying experimenting with UI libraries like{" "}
+          I&apos;m also enjoying experimenting with UI libraries like{" "}
           <Link
             className="underline"
             target="_blank"
@@ -52,7 +53,7 @@ const projectInfo = {
           >
             Motion
           </Link>{" "}
-          (previously <span className="italic">Framer Motion</span>) for animations, and {" "}
+          (previously <span className="italic">Framer Motion</span>) for animations, and{" "}
           <Link
             className="underline"
             target="_blank"
@@ -70,8 +71,9 @@ const projectInfo = {
           >
             Record Collection
           </Link>{" "}
-          project and integrating it directly into this portfolio site (didn't make much sense to
-          have it hosted independently for the time being) was also great fun. Enjoy your time here!
+          project and integrating it directly into this portfolio site (didn&apos;t make much sense
+          to have it hosted independently for the time being) was also great fun. Enjoy your time
+          here!
         </p>
       </div>
     </>
