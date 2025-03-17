@@ -13,32 +13,27 @@ const projectInfo = {
   link: "https://dailyworddetectives.netlify.app/",
   about: (
     <>
-      <div className="mb-6 font-primary text-base sm:text-lg">
-        Being an out-and-out music aficionado, I have been using{" "}
-        <span className="inline-flex">
-          Discogs
-          <IoIosInformationCircleOutline className="anchor-discogs inline outline-none size-[20px]" />
-        </span>{" "}
-        <MyTooltip anchorSelect=".anchor-discogs" place="top-start" fontSize="0.8rem">
-          An online music database & marketplace. <br /> Similar to what IMDB is for movies.
-        </MyTooltip>
-        for several years now. It serves as an invaluable resource - both for discovering new music
-        and for further exploring my favorite artists&apos; discographies. Furthermore, it allows
-        you to create an account and keep track of your own personal music collection.
-      </div>
-      <div className="mb-6 font-primary text-base sm:text-lg">
-        As soon as I found out that they have a{" "}
+      <p className="mb-8">
+        The goal of this mini-project was to practice a bit of JavaScript. I wanted something
+        bite-sized that I could hack together in no more than a day or two. I used to love playing
+        the{" "}
         <Link
-          href="https://www.discogs.com/developers"
+          href="https://www.nytimes.com/games/wordle/index.html"
+          className="underline"
           target="_blank"
-          rel="noopener noreferrer"
-          className="underline hover:text-foreground/80 transition-color duration-300"
         >
-          publicly-accessible API
-        </Link>
-        , I knew it would be fun to create a small website that fetches and showcases the releases
-        in my vinyl collection.
-      </div>
+          Wordle
+        </Link>{" "}
+        game every morning when I was younger, so I thought it would be a good idea to try and
+        recreate it.
+      </p>
+      <p className="mb-8">
+        This project relies on vanilla JS to reach out to a public API, containing a 5-letter
+        mystery word that changes every day. Users have 6 tries to guess the word. On each guess,
+        the UI provides color-coded feedback on each letter. A nice additional feature this version
+        has, is that it verifies the word to be a valid word, preventing a player from entering
+        invlaid words to gain unfair insights to the mystery word.
+      </p>
     </>
   ),
 }
@@ -47,7 +42,6 @@ const project: Project = {
   id: projectInfo.id,
   title: projectInfo.title,
   description: projectInfo.description,
-  imageSrc: projectInfo.imageSrc,
   about: projectInfo.about,
   link: projectInfo.link,
 }
@@ -55,7 +49,7 @@ const project: Project = {
 export default function DailyWordDetectives() {
   return (
     <>
-      <ProjectAboutPage imageSrc="/mockup_dummy.avif" project={project} openInNewTab={true}/>
+      <ProjectAboutPage imageSrc="/mockups/dailyworddetectives-mobile.webp" project={project} openInNewTab={true} />
     </>
   )
 }
