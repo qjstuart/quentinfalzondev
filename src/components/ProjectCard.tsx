@@ -7,9 +7,16 @@ type ProjectCardProps = {
   description: string
   iconSrc: string
   href: string
+  imgClass: string
 }
 
-export default function ProjectCard({ title, description, iconSrc, href }: ProjectCardProps) {
+export default function ProjectCard({
+  title,
+  description,
+  iconSrc,
+  href,
+  imgClass,
+}: ProjectCardProps) {
   return (
     <Link
       href={href}
@@ -21,7 +28,7 @@ export default function ProjectCard({ title, description, iconSrc, href }: Proje
           sizes="(max-width: 640px) 100px, 150px"
           src={iconSrc}
           alt={description}
-          className="object-contain"
+          className={`object-contain ${imgClass}`}
         />
       </div>
       <div className="flex flex-col h-full justify-center sm:gap-1">
