@@ -3,7 +3,7 @@ import { Project } from "@/types/Project"
 import Link from "next/link"
 
 const projectInfo = {
-  id: "3",
+  id: "4",
   title: "Daily Word Detectives",
   description: 'A not-so covert replica of the famous web-based game "Wordle"',
   imageSrc: "/record_player_silver.png",
