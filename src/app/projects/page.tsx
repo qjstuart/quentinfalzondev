@@ -24,9 +24,9 @@ export default function Projects() {
           />
           <ProjectCard
             iconSrc="/nasa-logo.svg"
-            title="NASA Pic Of The Day"
+            title="NASA Pic of the Day"
             description={`Discover the cosmos with NASA's APOD (Astronomy Picture of the Day) API!`}
-            href={"/projects/daniel-sant-website/about"}
+            href={"/projects/nasa-apod/about"}
             imgClass=""
           />
           <ProjectCard
@@ -40,7 +40,7 @@ export default function Projects() {
             iconSrc="/logo-portfolio.png"
             title="This Portfolio Website"
             description={`Built using NextJS, Tailwind and TypeScript.`}
-            href={"/projects/daniel-sant-website/about"}
+            href={"/projects/this-portfolio/about"}
             imgClass="rounded-xl opacity-90"
           />
         </ul>
