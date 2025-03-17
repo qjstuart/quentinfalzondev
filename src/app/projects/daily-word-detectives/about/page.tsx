@@ -1,9 +1,6 @@
 import ProjectAboutPage from "@/components/ProjectAboutPage"
 import { Project } from "@/types/Project"
 import Link from "next/link"
-import { IoIosInformationCircleOutline } from "react-icons/io"
-
-import MyTooltip from "@/components/MyTooltip"
 
 const projectInfo = {
   id: "3",
