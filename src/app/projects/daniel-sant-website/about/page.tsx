@@ -13,7 +13,7 @@ const projectInfo = {
         in both local and international jazz scenes.
       </p>
       <p className="mb-6">
-        Daniel&apos;s needed a website where his audience can get to know his story and
+        A website was needed where Daniel&apos;s audience can get to know his story and
         find important information such as latest releases and collaborations. I wanted to
         prioritize simplicity and efficiency for this project, while keeping the option for adding
         new features open.
