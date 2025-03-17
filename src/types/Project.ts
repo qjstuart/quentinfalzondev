@@ -5,5 +5,5 @@ export type Project = {
   title: string
   description: string
   about: ReactNode
-  link: string
+  link?: string
 }
