@@ -36,7 +36,7 @@ export default function RootLayout({
       >
         <Providers>
           <Header classes={"px-6"} />
-          <Main className="flex flex-col py-12 px-6">{children}</Main>
+          <Main className="flex flex-col py-6 md:py-12 px-6">{children}</Main>
           <Footer classes={"px-6"} />
           <Particles classes="-z-10" />
         </Providers>
