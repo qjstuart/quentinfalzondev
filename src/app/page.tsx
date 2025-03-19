@@ -1,11 +1,13 @@
 import Button from "@/components/Button"
 import Socials from "@/components/Socials"
+import Image from "next/image"
 
 export default function Home() {
   return (
     <div className="max-w-[1200px] mx-auto">
-      <section className="grid  gap-12 md:gap-24 items-start w-full p-8 mx-auto">
-        <div>
+      <section className="grid gap-8 md:gap-12 items-start w-full p-8 mx-auto">
+        <Image src="/home-pic-zoomed.jpg" alt="" width={160} height={160} className="rounded-full shadow-[0_0_120px_rgba(128,128,128,0.7)]"></Image>
+        <div className="mb-8">
           <h1 className="text-[40px] md:text-[45px] lg:text-[50px] tracking-tight leading-tight text-nowrap">
             Hi there! <br /> I&apos;m{" "}
             <span className="font-semibold font-secondary italic pb-3 inline-block">
