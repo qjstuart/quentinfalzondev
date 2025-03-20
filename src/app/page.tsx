@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="max-w-[1200px] mx-auto">
       <section className="grid gap-8 md:gap-12 items-start w-full p-8 mx-auto">
-        <Image src="/home-pic-zoomed.jpg" alt="" width={130} height={130} className="rounded-full shadow-[0_0_120px_rgba(128,128,128,0.7)]"></Image>
+        <Image src="/home-pic-zoomed.webp" alt="" width={130} height={130} className="rounded-full shadow-[0_0_120px_rgba(128,128,128,0.7)]"></Image>
         <div className="md:mb-8">
           <h1 className="text-[40px] md:text-[45px] lg:text-[50px] tracking-tight leading-tight text-nowrap">
             Hi there! <br /> I&apos;m{" "}
